@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[PAGINATITEL] | [SITENAAM]</title>
+<meta name="description" content="[META BESCHRIJVING — MAX 155 TEKENS]">
+<link rel="canonical" href="[CANONICAL URL]">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+/* ===================================================
+   KLEURTHEMA — alleen hier aanpassen
+   --cta    = knopkleur
+   --brand  = merkkleur (headings, accenten)
+   --accent = secundaire kleur (checks, badges)
+   =================================================== */
+:root {
+  --cta:      #E07020;
+  --ctaHover: #be5e18;
+  --brand:    #1e3767;
+  --accent:   #4a8c3f;
+  --accentBg: #eaf3de;
+  --text:     #222;
+  --textMid:  #444;
+  --textLight:#666;
+  --bg:       #fff;
+  --surface:  #F7F6F2;
+  --border:   #e2e0d8;
+  --radius:   10px;
+  --maxW:     780px;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box }
+body { font-family:'Nunito',system-ui,sans-serif; font-size:16px; line-height:1.75; color:var(--text); background:var(--bg) }
+img { display:block; max-width:100%; height:auto }
+a { color:var(--brand); text-decoration:none }
+a:hover { text-decoration:underline }
+
+/* HERO */
+.hero { background:var(--brand) }
+.hero-img-wrap { position:relative; height:320px; overflow:hidden }
+.hero-img-wrap img { width:100%; height:100%; object-fit:cover }
+.hero-img-wrap::after { content:''; position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,.55) 0%,rgba(0,0,0,.1) 60%) }
+.hero-content { max-width:var(--maxW); margin:0 auto; padding:40px 24px 50px }
+.hero-badges { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px }
+.badge { display:inline-flex; align-items:center; gap:5px; background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.25); border-radius:20px; padding:4px 12px; font-size:12px; color:rgba(255,255,255,.9); font-weight:700 }
+.hero-content h1 { font-size:36px; color:#fff; font-weight:800; line-height:1.2; margin-bottom:12px }
+.hero-intro { font-size:17px; color:rgba(255,255,255,.85); margin-bottom:22px; max-width:600px }
+.hero-usps { display:flex; flex-direction:column; gap:8px; margin-bottom:26px }
+.hero-usp { display:flex; align-items:center; gap:10px; color:rgba(255,255,255,.9); font-size:15px; font-weight:700 }
+.usp-dot { width:8px; height:8px; background:var(--cta); border-radius:50%; flex-shrink:0 }
+.hero-cta { display:flex; gap:12px; flex-wrap:wrap }
+.btn { display:inline-block; background:var(--cta); color:#fff; padding:10px 22px; border-radius:8px; font-weight:800; font-size:14px; border:none; cursor:pointer; transition:background .2s; text-decoration:none }
+.btn:hover { background:var(--ctaHover); color:#fff; text-decoration:none }
+.btn-lg { font-size:16px; padding:14px 32px; border-radius:10px }
+.btn-ghost { background:transparent; border:2px solid rgba(255,255,255,.5); color:#fff }
+.btn-ghost:hover { background:rgba(255,255,255,.15) }
+
+/* BROODKRUIMELS */
+.crumbs-wrap { border-bottom:1px solid var(--border) }
+.crumbs { max-width:var(--maxW); margin:0 auto; padding:13px 24px; font-size:13px; color:#aaa }
+.crumbs a { color:var(--brand) }
+.crumbs span { margin:0 6px }
+
+/* HOOFDCONTENT */
+.page-body { max-width:var(--maxW); margin:0 auto; padding:0 24px 64px }
+.qa-block { background:var(--accentBg); border-left:4px solid var(--accent); border-radius:0 var(--radius) var(--radius) 0; padding:18px 22px; margin:28px 0 36px; font-size:16px; color:#2d4a29; line-height:1.8 }
+.stats-row { display:grid; grid-template-columns:repeat(4,1fr); background:var(--cta); border-radius:var(--radius); overflow:hidden; margin:24px 0 }
+.stat { text-align:center; padding:16px 8px; border-right:1px solid rgba(255,255,255,.2) }
+.stat:last-child { border:none }
+.stat-num { font-size:26px; font-weight:800; color:#fff }
+.stat-lbl { font-size:11px; color:rgba(255,255,255,.85); font-weight:700; text-transform:uppercase; letter-spacing:.04em }
+.toc { background:var(--surface); border-radius:var(--radius); border:1px solid var(--border); padding:20px 24px; margin:32px 0 }
+.toc-title { font-size:13px; font-weight:800; color:var(--brand); margin-bottom:12px; text-transform:uppercase; letter-spacing:.05em }
+.toc ol { margin-left:18px }
+.toc li { margin-bottom:5px }
+.toc a { font-size:14px; color:var(--brand); font-weight:700 }
+.toc a:hover { color:var(--cta) }
+.page-body h2 { font-size:24px; font-weight:800; color:var(--brand); margin:48px 0 14px; padding-bottom:10px; border-bottom:2px solid var(--border) }
+.page-body h3 { font-size:18px; font-weight:800; color:var(--brand); margin:28px 0 10px }
+.page-body p { margin-bottom:16px; color:var(--textMid) }
+.page-body ul, .page-body ol { margin:0 0 18px 22px; color:var(--textMid) }
+.page-body li { margin-bottom:7px }
+.page-body li strong { color:var(--brand) }
+.page-body img { border-radius:var(--radius); margin:20px 0 }
+.cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin:20px 0 32px }
+.card { background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden }
+.card img { width:100%; height:160px; object-fit:cover }
+.card-body { padding:16px }
+.card-body h3 { font-size:16px; font-weight:800; color:var(--brand); margin:0 0 6px }
+.card-body p { font-size:14px; color:var(--textLight); margin:0 0 12px }
+.card-body a { font-size:14px; font-weight:800; color:var(--cta) }
+.usp-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; margin:20px 0 32px }
+.usp-card { background:var(--surface); border-radius:var(--radius); padding:18px 16px; border:1px solid var(--border) }
+.usp-ico { font-size:24px; margin-bottom:10px }
+.usp-title { font-size:15px; font-weight:800; color:var(--brand); margin-bottom:4px }
+.usp-desc { font-size:13px; color:var(--textLight); line-height:1.5 }
+.facility-list { display:grid; grid-template-columns:1fr 1fr; gap:4px 24px; margin:16px 0 28px }
+.fac-item { display:flex; align-items:flex-start; gap:8px; padding:7px 0; border-bottom:1px solid var(--border); font-size:15px; color:var(--textMid) }
+.fac-check { color:var(--accent); font-weight:800; flex-shrink:0 }
+.location-item { display:flex; align-items:baseline; gap:12px; padding:10px 0; border-bottom:1px solid var(--border); font-size:15px }
+.loc-km { min-width:60px; font-weight:800; color:var(--cta) }
+.loc-name { font-weight:700; color:var(--brand) }
+.loc-desc { color:var(--textLight) }
+.target-tags { display:flex; flex-wrap:wrap; gap:10px; margin:16px 0 28px }
+.target-tag { background:var(--accentBg); border:1px solid var(--accent); border-radius:20px; padding:6px 16px; font-size:14px; font-weight:700; color:var(--accent) }
+.rating-block { background:var(--brand); color:#fff; border-radius:var(--radius); padding:20px 24px; display:flex; align-items:center; gap:24px; margin-bottom:20px }
+.rating-big { font-size:48px; font-weight:800; line-height:1 }
+.rating-info { display:flex; flex-direction:column; gap:4px }
+.rating-label { font-size:15px; font-weight:800 }
+.rating-sub { font-size:13px; color:rgba(255,255,255,.7) }
+.reviews { display:flex; flex-direction:column; gap:14px; margin:0 0 32px }
+.review { background:var(--surface); border-radius:var(--radius); padding:18px 20px; border:1px solid var(--border) }
+.review-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px }
+.review-name { font-weight:800; color:var(--brand); font-size:15px }
+.review-stars { color:var(--cta); font-size:14px; font-weight:800 }
+.review-text { font-size:14px; color:var(--textLight); line-height:1.6; font-style:italic }
+.practical-table { width:100%; border-collapse:collapse; font-size:15px; margin:16px 0 28px }
+.practical-table tr { border-bottom:1px solid var(--border) }
+.practical-table tr:last-child { border:none }
+.practical-table td { padding:10px 0 }
+.practical-table td:first-child { color:var(--textLight); font-weight:700; width:40% }
+.practical-table td:last-child { font-weight:800; color:var(--text) }
+.faq { margin:20px 0 32px }
+.faq-item { border-bottom:1px solid var(--border); padding:16px 0 }
+.faq-q { font-weight:800; color:var(--brand); font-size:16px; margin-bottom:6px }
+.faq-a { font-size:15px; color:var(--textMid); line-height:1.65 }
+.tip-box { background:#fff8f0; border:1px solid #f5d8b0; border-radius:var(--radius); padding:18px 20px; margin:24px 0; display:flex; gap:14px; align-items:flex-start }
+.tip-ico { font-size:20px; flex-shrink:0 }
+.tip-text { font-size:15px; color:#7a4a10; line-height:1.65 }
+.tip-text strong { color:#5a3008 }
+.cta-block { background:var(--brand); border-radius:var(--radius); padding:36px 32px; text-align:center; margin:48px 0 32px }
+.cta-block h2 { color:#fff; font-size:26px; font-weight:800; margin:0 0 10px; border:none; padding:0 }
+.cta-block p { color:rgba(255,255,255,.8); font-size:16px; margin:0 0 24px }
+.cta-block .btn { font-size:17px; padding:15px 36px }
+.updated { font-size:12px; color:#bbb; margin-top:40px; padding-top:14px; border-top:1px solid var(--border) }
+.related { background:var(--surface); padding:52px 0; border-top:1px solid var(--border) }
+.related-inner { max-width:var(--maxW); margin:0 auto; padding:0 24px }
+.related h2 { font-size:22px; color:var(--brand); font-weight:800; margin:0 0 24px; border:none; padding:0 }
+.related-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px }
+.rel-card { background:#fff; border-radius:var(--radius); border:1px solid var(--border); overflow:hidden }
+.rel-card img { width:100%; height:150px; object-fit:cover }
+.rel-body { padding:14px }
+.rel-body h3 { color:var(--brand); font-size:15px; font-weight:800; margin:0 0 5px }
+.rel-body p { font-size:13px; color:var(--textLight); margin:0 0 10px; line-height:1.5 }
+.rel-body a { font-size:13px; font-weight:800; color:var(--cta) }
+@media(max-width:768px) {
+  .hero-content h1 { font-size:26px }
+  .hero-img-wrap { height:220px }
+  .stats-row { grid-template-columns:repeat(2,1fr) }
+  .facility-list { grid-template-columns:1fr }
+  .cta-block { padding:28px 20px }
+  .cta-block h2 { font-size:21px }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-img-wrap">
+    <img src="[HERO AFBEELDING URL]" alt="[ALT TEKST]">
+  </div>
+  <div class="hero-content">
+    <div class="hero-badges">
+      <span class="badge">&#9733; [KEURMERK 1]</span>
+      <span class="badge">[KEURMERK 2]</span>
+      <span class="badge">[KEURMERK 3]</span>
+    </div>
+    <h1>[H1 — HOOFDZOEKWOORD + NAAM]</h1>
+    <p class="hero-intro">[KORTE INTRO: 1-2 zinnen met kernboodschap en locatie]</p>
+    <div class="hero-usps">
+      <div class="hero-usp"><span class="usp-dot"></span>[USP 1]</div>
+      <div class="hero-usp"><span class="usp-dot"></span>[USP 2]</div>
+      <div class="hero-usp"><span class="usp-dot"></span>[USP 3]</div>
+    </div>
+    <div class="hero-cta">
+      <a href="#boek" class="btn btn-lg">Bekijk beschikbaarheid</a>
+      <a href="#faciliteiten" class="btn btn-lg btn-ghost">Alle faciliteiten</a>
+    </div>
+  </div>
+</div>
+
+<!-- BROODKRUIMELS -->
+<div class="crumbs-wrap">
+  <div class="crumbs">
+    <a href="/">Home</a><span>/</span>
+    <a href="/[CATEGORIE]/">[CATEGORIE]</a><span>/</span>
+    [HUIDIGE PAGINA]
+  </div>
+</div>
+
+<div class="page-body">
+
+  <!-- INTRO ANTWOORDBLOK -->
+  <div class="qa-block">
+    [BEKNOPT ANTWOORD OP DE ZOEKINTENTIE: 2-3 zinnen. Dit is wat Google als featured snippet kan oppikken.]
+  </div>
+
+  <p>[INTRODUCTIE ALINEA 1 — context, locatie, doelgroep]</p>
+  <p>[INTRODUCTIE ALINEA 2 — zoekwoorden verwerken, interne link naar andere pagina]</p>
+
+  <!-- STATISTIEKEN BALK -->
+  <div class="stats-row">
+    <div class="stat"><div class="stat-num">[GETAL]</div><div class="stat-lbl">[LABEL]</div></div>
+    <div class="stat"><div class="stat-num">[GETAL]</div><div class="stat-lbl">[LABEL]</div></div>
+    <div class="stat"><div class="stat-num">[GETAL]</div><div class="stat-lbl">[LABEL]</div></div>
+    <div class="stat"><div class="stat-num">[GETAL]</div><div class="stat-lbl">[LABEL]</div></div>
+  </div>
+
+  <!-- INHOUDSOPGAVE -->
+  <nav class="toc" aria-label="Inhoudsopgave">
+    <div class="toc-title">Op deze pagina</div>
+    <ol>
+      <li><a href="#aanbod">Aanbod &amp; accommodaties</a></li>
+      <li><a href="#voordelen">Voordelen</a></li>
+      <li><a href="#faciliteiten">Faciliteiten</a></li>
+      <li><a href="#omgeving">Omgeving &amp; locatie</a></li>
+      <li><a href="#doelgroep">Voor wie geschikt?</a></li>
+      <li><a href="#reviews">Reviews &amp; keurmerken</a></li>
+      <li><a href="#praktisch">Praktische informatie</a></li>
+      <li><a href="#faq">Veelgestelde vragen</a></li>
+    </ol>
+  </nav>
+
+  <!-- H2: AANBOD -->
+  <h2 id="aanbod">Aanbod &amp; accommodaties</h2>
+  <p>[INTRO AANBOD]</p>
+  <div class="cards">
+    <div class="card">
+      <img src="[AFBEELDING]" alt="[ALT]">
+      <div class="card-body"><h3>[TYPE 1]</h3><p>[Beschrijving]</p><a href="#">Bekijk &rsaquo;</a></div>
+    </div>
+    <div class="card">
+      <img src="[AFBEELDING]" alt="[ALT]">
+      <div class="card-body"><h3>[TYPE 2]</h3><p>[Beschrijving]</p><a href="#">Bekijk &rsaquo;</a></div>
+    </div>
+    <div class="card">
+      <img src="[AFBEELDING]" alt="[ALT]">
+      <div class="card-body"><h3>[TYPE 3]</h3><p>[Beschrijving]</p><a href="#">Bekijk &rsaquo;</a></div>
+    </div>
+  </div>
+
+  <!-- H2: VOORDELEN -->
+  <h2 id="voordelen">Waarom kiezen voor [NAAM]?</h2>
+  <p>[INTRO VOORDELEN]</p>
+  <div class="usp-grid">
+    <div class="usp-card"><div class="usp-ico">[ICOON]</div><div class="usp-title">[VOORDEEL 1]</div><div class="usp-desc">[TOELICHTING]</div></div>
+    <div class="usp-card"><div class="usp-ico">[ICOON]</div><div class="usp-title">[VOORDEEL 2]</div><div class="usp-desc">[TOELICHTING]</div></div>
+    <div class="usp-card"><div class="usp-ico">[ICOON]</div><div class="usp-title">[VOORDEEL 3]</div><div class="usp-desc">[TOELICHTING]</div></div>
+    <div class="usp-card"><div class="usp-ico">[ICOON]</div><div class="usp-title">[VOORDEEL 4]</div><div class="usp-desc">[TOELICHTING]</div></div>
+  </div>
+
+  <!-- H2: FACILITEITEN -->
+  <h2 id="faciliteiten">Faciliteiten</h2>
+  <p>[INTRO FACILITEITEN]</p>
+  <img src="[FOTO]" alt="[ALT]">
+  <div class="facility-list">
+    <div class="fac-item"><span class="fac-check">&#10003;</span>[FACILITEIT 1]</div>
+    <div class="fac-item"><span class="fac-check">&#10003;</span>[FACILITEIT 2]</div>
+    <div class="fac-item"><span class="fac-check">&#10003;</span>[FACILITEIT 3]</div>
+    <div class="fac-item"><span class="fac-check">&#10003;</span>[FACILITEIT 4]</div>
+    <div class="fac-item"><span class="fac-check">&#10003;</span>[FACILITEIT 5]</div>
+    <div class="fac-item"><span class="fac-check">&#10003;</span>[FACILITEIT 6]</div>
+    <div class="fac-item"><span class="fac-check">&#10003;</span>[FACILITEIT 7]</div>
+    <div class="fac-item"><span class="fac-check">&#10003;</span>[FACILITEIT 8]</div>
+  </div>
+  <div class="tip-box">
+    <div class="tip-ico">&#9432;</div>
+    <div class="tip-text"><strong>[LABEL]:</strong> [EXTRA INFO OF BIJZONDERHEID]</div>
+  </div>
+
+  <!-- H2: OMGEVING -->
+  <h2 id="omgeving">Omgeving &amp; locatie</h2>
+  <p>[INTRO OMGEVING]</p>
+  <img src="[FOTO]" alt="[ALT]">
+  <div class="location-item"><span class="loc-km">[X min]</span><span class="loc-name">[ATTRACTIE 1]</span><span class="loc-desc">— [omschrijving]</span></div>
+  <div class="location-item"><span class="loc-km">[X min]</span><span class="loc-name">[ATTRACTIE 2]</span><span class="loc-desc">— [omschrijving]</span></div>
+  <div class="location-item"><span class="loc-km">[X min]</span><span class="loc-name">[ATTRACTIE 3]</span><span class="loc-desc">— [omschrijving]</span></div>
+  <div class="location-item"><span class="loc-km">[X min]</span><span class="loc-name">[ATTRACTIE 4]</span><span class="loc-desc">— [omschrijving]</span></div>
+
+  <!-- H2: DOELGROEP -->
+  <h2 id="doelgroep">Voor wie is [NAAM] geschikt?</h2>
+  <p>[INTRO DOELGROEP]</p>
+  <div class="target-tags">
+    <span class="target-tag">[DOELGROEP 1]</span>
+    <span class="target-tag">[DOELGROEP 2]</span>
+    <span class="target-tag">[DOELGROEP 3]</span>
+    <span class="target-tag">[DOELGROEP 4]</span>
+  </div>
+  <p>[TOELICHTING]</p>
+
+  <!-- H2: REVIEWS -->
+  <h2 id="reviews">Reviews &amp; keurmerken</h2>
+  <div class="rating-block">
+    <div class="rating-big">[8,5]</div>
+    <div class="rating-info">
+      <div class="rating-label">[LABEL — bijv. Uitstekend]</div>
+      <div class="rating-sub">gebaseerd op [XXX] beoordelingen · schaal van 10</div>
+    </div>
+  </div>
+  <div class="reviews">
+    <div class="review">
+      <div class="review-header"><span class="review-name">[NAAM]</span><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+      <div class="review-text">"[REVIEWTEKST]"</div>
+    </div>
+    <div class="review">
+      <div class="review-header"><span class="review-name">[NAAM]</span><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+      <div class="review-text">"[REVIEWTEKST]"</div>
+    </div>
+  </div>
+
+  <!-- H2: PRAKTISCH -->
+  <h2 id="praktisch">Praktische informatie</h2>
+  <table class="practical-table">
+    <tr><td>Adres</td><td>[ADRES]</td></tr>
+    <tr><td>Openingstijden</td><td>[TIJDEN]</td></tr>
+    <tr><td>Prijs vanaf</td><td>[PRIJS]</td></tr>
+    <tr><td>Huisdieren</td><td>[JA/NEE + toelichting]</td></tr>
+    <tr><td>WiFi</td><td>[JA/NEE + toelichting]</td></tr>
+    <tr><td>Contact</td><td>[TELEFOON] — [EMAIL]</td></tr>
+  </table>
+
+  <!-- H2: FAQ -->
+  <h2 id="faq">Veelgestelde vragen</h2>
+  <div class="faq">
+    <div class="faq-item"><div class="faq-q">[VRAAG 1]</div><div class="faq-a">[ANTWOORD 1]</div></div>
+    <div class="faq-item"><div class="faq-q">[VRAAG 2]</div><div class="faq-a">[ANTWOORD 2]</div></div>
+    <div class="faq-item"><div class="faq-q">[VRAAG 3]</div><div class="faq-a">[ANTWOORD 3]</div></div>
+    <div class="faq-item"><div class="faq-q">[VRAAG 4]</div><div class="faq-a">[ANTWOORD 4]</div></div>
+  </div>
+
+  <!-- AFSLUITENDE CTA -->
+  <div class="cta-block" id="boek">
+    <h2>[CTA HEADING]</h2>
+    <p>[CTA SUBTEKST]</p>
+    <a href="[BOEKLINK]" class="btn btn-lg">[KNOPTEKST]</a>
+  </div>
+
+  <div class="updated">Laatst bijgewerkt: [DATUM]</div>
+
+</div>
+
+<!-- GERELATEERD -->
+<div class="related">
+  <div class="related-inner">
+    <h2>Dit vindt u misschien ook interessant</h2>
+    <div class="related-grid">
+      <div class="rel-card"><img src="[AFBEELDING]" alt="[ALT]"><div class="rel-body"><h3>[TITEL]</h3><p>[BESCHRIJVING]</p><a href="#">Lees meer &rsaquo;</a></div></div>
+      <div class="rel-card"><img src="[AFBEELDING]" alt="[ALT]"><div class="rel-body"><h3>[TITEL]</h3><p>[BESCHRIJVING]</p><a href="#">Lees meer &rsaquo;</a></div></div>
+      <div class="rel-card"><img src="[AFBEELDING]" alt="[ALT]"><div class="rel-body"><h3>[TITEL]</h3><p>[BESCHRIJVING]</p><a href="#">Lees meer &rsaquo;</a></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SCHEMA MARKUP -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"[VRAAG 1]","acceptedAnswer":{"@type":"Answer","text":"[ANTWOORD 1]"}},
+  {"@type":"Question","name":"[VRAAG 2]","acceptedAnswer":{"@type":"Answer","text":"[ANTWOORD 2]"}}
+]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"[NAAM]","description":"[BESCHRIJVING]","url":"[URL]","telephone":"[TELEFOON]","address":{"@type":"PostalAddress","streetAddress":"[STRAAT]","addressLocality":"[PLAATS]","postalCode":"[POSTCODE]","addressCountry":"NL"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"[SCORE]","bestRating":"10","reviewCount":"[AANTAL]"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"[DOMEIN]/"},
+  {"@type":"ListItem","position":2,"name":"[CATEGORIE]","item":"[DOMEIN]/[CATEGORIE]/"},
+  {"@type":"ListItem","position":3,"name":"[PAGINANAAM]"}
+]}
+</script>
+</body>
+</html>

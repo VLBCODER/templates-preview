@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[BLOGTITEL] | [SITENAAM]</title>
+<meta name="description" content="[META BESCHRIJVING — MAX 155 TEKENS]">
+<link rel="canonical" href="[CANONICAL URL]">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+/* ===================================================
+   KLEURTHEMA — alleen hier aanpassen
+   --cta    = knopkleur
+   --brand  = merkkleur (headings, accenten)
+   --accent = secundaire kleur (checks, quotes)
+   =================================================== */
+:root {
+  --cta:      #E07020;
+  --ctaHover: #be5e18;
+  --brand:    #1e3767;
+  --accent:   #4a8c3f;
+  --accentBg: #eaf3de;
+  --text:     #222;
+  --textMid:  #444;
+  --textLight:#666;
+  --bg:       #fff;
+  --surface:  #F7F6F2;
+  --border:   #e2e0d8;
+  --radius:   10px;
+  --maxW:     740px;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box }
+body { font-family:'Nunito',system-ui,sans-serif; font-size:16px; line-height:1.8; color:var(--text); background:var(--bg) }
+img { display:block; max-width:100%; height:auto }
+a { color:var(--brand) }
+a:hover { color:var(--cta) }
+.btn { display:inline-block; background:var(--cta); color:#fff; padding:10px 22px; border-radius:8px; font-weight:800; font-size:14px; text-decoration:none; transition:background .2s }
+.btn:hover { background:var(--ctaHover); color:#fff }
+.btn-lg { font-size:16px; padding:14px 32px; border-radius:10px }
+
+/* HERO BLOG */
+.blog-hero { background:var(--brand); padding:48px 24px 52px }
+.blog-hero-inner { max-width:var(--maxW); margin:0 auto }
+.blog-category { display:inline-block; background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.25); border-radius:20px; padding:4px 14px; font-size:12px; font-weight:800; color:rgba(255,255,255,.9); margin-bottom:16px; text-transform:uppercase; letter-spacing:.06em }
+.blog-hero h1 { font-size:34px; color:#fff; font-weight:800; line-height:1.25; margin-bottom:14px }
+.blog-hero-intro { font-size:17px; color:rgba(255,255,255,.82); line-height:1.7; margin-bottom:20px }
+.blog-meta { display:flex; flex-wrap:wrap; gap:16px; font-size:13px; color:rgba(255,255,255,.6) }
+
+/* HERO AFBEELDING */
+.hero-img-full { max-width:var(--maxW); margin:0 auto; padding:0 24px }
+.hero-img-full img { width:100%; height:280px; object-fit:cover; border-radius:0 0 var(--radius) var(--radius) }
+.hero-img-full figcaption { font-size:12px; color:#aaa; margin-top:6px; font-style:italic }
+
+/* BROODKRUIMELS */
+.crumbs-wrap { border-bottom:1px solid var(--border) }
+.crumbs { max-width:var(--maxW); margin:0 auto; padding:13px 24px; font-size:13px; color:#aaa }
+.crumbs a { color:var(--brand); text-decoration:none }
+.crumbs span { margin:0 6px }
+
+/* ARTIKEL */
+.article { max-width:var(--maxW); margin:0 auto; padding:0 24px 64px }
+.toc { background:var(--surface); border-radius:var(--radius); border:1px solid var(--border); padding:20px 24px; margin:28px 0 36px }
+.toc-title { font-size:13px; font-weight:800; color:var(--brand); margin-bottom:12px; text-transform:uppercase; letter-spacing:.06em }
+.toc ol { margin-left:18px }
+.toc li { margin-bottom:6px }
+.toc a { font-size:15px; color:var(--brand); font-weight:700; text-decoration:none }
+.toc a:hover { color:var(--cta) }
+.article h2 { font-size:23px; font-weight:800; color:var(--brand); margin:48px 0 14px; padding-bottom:10px; border-bottom:2px solid var(--border) }
+.article h3 { font-size:18px; font-weight:800; color:var(--brand); margin:28px 0 10px }
+.article h4 { font-size:16px; font-weight:800; color:var(--brand); margin:20px 0 8px }
+.article p { margin-bottom:18px; color:var(--textMid); line-height:1.8 }
+.article ul, .article ol { margin:0 0 20px 22px; color:var(--textMid) }
+.article li { margin-bottom:8px }
+.article li strong { color:var(--brand) }
+.article img { border-radius:var(--radius); margin:24px 0 8px }
+.article figcaption { font-size:12px; color:#aaa; margin-bottom:20px; font-style:italic }
+.article strong { color:var(--brand) }
+.article a { color:var(--brand); font-weight:700 }
+.blockquote { border-left:4px solid var(--cta); background:var(--surface); border-radius:0 var(--radius) var(--radius) 0; padding:18px 22px; margin:24px 0; font-size:17px; color:var(--brand); font-weight:700; line-height:1.7; font-style:italic }
+.tip-box { background:#fff8f0; border:1px solid #f5d8b0; border-radius:var(--radius); padding:18px 20px; margin:24px 0; display:flex; gap:14px; align-items:flex-start }
+.tip-ico { font-size:20px; flex-shrink:0 }
+.tip-text { font-size:15px; color:#7a4a10; line-height:1.65 }
+.tip-text strong { color:#5a3008 }
+.info-box { background:var(--accentBg); border:1px solid #b8dca8; border-radius:var(--radius); padding:18px 20px; margin:24px 0 }
+.info-box-title { font-size:13px; font-weight:800; color:var(--accent); margin-bottom:8px; text-transform:uppercase; letter-spacing:.04em }
+.info-box p { font-size:15px; color:#2d4a29; margin:0 }
+.link-block { background:var(--surface); border-radius:var(--radius); border:1px solid var(--border); padding:16px 20px; margin:24px 0; display:flex; justify-content:space-between; align-items:center; gap:12px }
+.link-block-text { font-size:15px; color:var(--textMid) }
+.link-block-text strong { color:var(--brand) }
+.link-block a { font-size:14px; font-weight:800; color:var(--cta); white-space:nowrap; flex-shrink:0; text-decoration:none }
+.checklist { list-style:none; margin-left:0; padding:0 }
+.checklist li { display:flex; align-items:flex-start; gap:10px; padding:8px 0; border-bottom:1px solid var(--border); font-size:15px; color:var(--textMid) }
+.checklist li:last-child { border:none }
+.cl-icon { color:var(--accent); font-weight:800; flex-shrink:0 }
+.compare-wrap { overflow-x:auto; margin:20px 0 28px }
+table.cmp { width:100%; border-collapse:collapse; font-size:15px }
+table.cmp th { background:var(--brand); color:#fff; padding:10px 14px; text-align:left; font-weight:700; font-size:14px }
+table.cmp td { padding:10px 14px; border-bottom:1px solid var(--border) }
+table.cmp tr:nth-child(even) td { background:var(--surface) }
+.faq { margin:20px 0 36px }
+.faq-item { border-bottom:1px solid var(--border); padding:16px 0 }
+.faq-q { font-weight:800; color:var(--brand); font-size:16px; margin-bottom:7px }
+.faq-a { font-size:15px; color:var(--textMid); line-height:1.7 }
+.cta-block { background:var(--brand); border-radius:var(--radius); padding:36px 32px; text-align:center; margin:48px 0 32px }
+.cta-block h2 { color:#fff; font-size:24px; font-weight:800; margin:0 0 10px; border:none; padding:0 }
+.cta-block p { color:rgba(255,255,255,.8); font-size:16px; margin:0 0 24px; line-height:1.65 }
+.cta-block .btn { font-size:16px; padding:14px 32px }
+.updated { font-size:12px; color:#bbb; margin-top:40px; padding-top:14px; border-top:1px solid var(--border) }
+.related { background:var(--surface); padding:52px 0; border-top:1px solid var(--border) }
+.related-inner { max-width:var(--maxW); margin:0 auto; padding:0 24px }
+.related h2 { font-size:20px; color:var(--brand); font-weight:800; margin:0 0 20px; border:none; padding:0 }
+.related-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px }
+.rel-card { background:#fff; border-radius:var(--radius); border:1px solid var(--border); overflow:hidden }
+.rel-card img { width:100%; height:140px; object-fit:cover }
+.rel-body { padding:14px }
+.rel-body h3 { color:var(--brand); font-size:15px; font-weight:800; margin:0 0 5px }
+.rel-body p { font-size:13px; color:var(--textLight); margin:0 0 10px; line-height:1.5 }
+.rel-body a { font-size:13px; font-weight:800; color:var(--cta); text-decoration:none }
+@media(max-width:768px) {
+  .blog-hero h1 { font-size:25px }
+  .blog-hero { padding:36px 20px 40px }
+  .article h2 { font-size:20px }
+  .cta-block { padding:26px 18px }
+  .link-block { flex-direction:column; align-items:flex-start }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO BLOG -->
+<div class="blog-hero">
+  <div class="blog-hero-inner">
+    <span class="blog-category">[CATEGORIE — bijv. Reisgids]</span>
+    <h1>[H1 — INFORMATIEF EN ZOEKWOORDGERICHT]</h1>
+    <p class="blog-hero-intro">[INTRO: 1-2 zinnen die de belofte van het artikel uitleggen]</p>
+    <div class="blog-meta">
+      <span>&#128197; [PUBLICATIEDATUM]</span>
+      <span>&#128336; [LEESTIJD — bijv. 8 min]</span>
+      <span>&#128472; Bijgewerkt [DATUM]</span>
+    </div>
+  </div>
+</div>
+
+<!-- HERO AFBEELDING -->
+<figure class="hero-img-full">
+  <img src="[HERO AFBEELDING URL]" alt="[ALT — onderwerp + locatie]">
+  <figcaption>[BIJSCHRIFT FOTO]</figcaption>
+</figure>
+
+<!-- BROODKRUIMELS -->
+<div class="crumbs-wrap">
+  <div class="crumbs">
+    <a href="/">Home</a><span>/</span>
+    <a href="/[CATEGORIE]/">[CATEGORIE LABEL]</a><span>/</span>
+    [ARTIKELTITEL KORT]
+  </div>
+</div>
+
+<article class="article">
+
+  <p>[INTRODUCTIE ALINEA 1]</p>
+  <p>[INTRODUCTIE ALINEA 2 — wat leert de lezer na dit artikel?]</p>
+
+  <!-- INHOUDSOPGAVE -->
+  <nav class="toc" aria-label="Inhoudsopgave">
+    <div class="toc-title">In dit artikel</div>
+    <ol>
+      <li><a href="#h2-1">[SECTIETITEL 1]</a></li>
+      <li><a href="#h2-2">[SECTIETITEL 2]</a></li>
+      <li><a href="#h2-3">[SECTIETITEL 3]</a></li>
+      <li><a href="#h2-4">[SECTIETITEL 4]</a></li>
+      <li><a href="#h2-5">[SECTIETITEL 5]</a></li>
+      <li><a href="#faq">Veelgestelde vragen</a></li>
+      <li><a href="#conclusie">Conclusie</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="h2-1">[SECTIETITEL 1]</h2>
+  <p>[INHOUD — meerdere alinea's]</p>
+  <figure>
+    <img src="[AFBEELDING]" alt="[ALT]">
+    <figcaption>[BIJSCHRIFT]</figcaption>
+  </figure>
+
+  <h2 id="h2-2">[SECTIETITEL 2]</h2>
+  <p>[INHOUD]</p>
+  <h3>[SUBSECTIE]</h3>
+  <p>[INHOUD H3]</p>
+  <ul>
+    <li><strong>[PUNT 1]</strong> — [toelichting]</li>
+    <li><strong>[PUNT 2]</strong> — [toelichting]</li>
+    <li><strong>[PUNT 3]</strong> — [toelichting]</li>
+  </ul>
+  <div class="tip-box">
+    <div class="tip-ico">&#128161;</div>
+    <div class="tip-text"><strong>Tip:</strong> [PRAKTISCHE TIP]</div>
+  </div>
+
+  <h2 id="h2-3">[SECTIETITEL 3]</h2>
+  <p>[INHOUD]</p>
+  <div class="blockquote">[OPVALLENDE UITSPRAAK OF KERNBOODSCHAP]</div>
+  <p>[VERVOLG]</p>
+  <div class="info-box">
+    <div class="info-box-title">Wist je dat?</div>
+    <p>[INTERESSANT FEIT OF CIJFER]</p>
+  </div>
+  <div class="link-block">
+    <div class="link-block-text">Lees ook: <strong>[GERELATEERDE PAGINA]</strong> — [uitleg]</div>
+    <a href="/[URL]/">Lees meer &rsaquo;</a>
+  </div>
+
+  <h2 id="h2-4">[SECTIETITEL 4]</h2>
+  <p>[INHOUD]</p>
+  <ul class="checklist">
+    <li><span class="cl-icon">&#10003;</span>[CHECKPUNT 1]</li>
+    <li><span class="cl-icon">&#10003;</span>[CHECKPUNT 2]</li>
+    <li><span class="cl-icon">&#10003;</span>[CHECKPUNT 3]</li>
+    <li><span class="cl-icon">&#10003;</span>[CHECKPUNT 4]</li>
+  </ul>
+
+  <h2 id="h2-5">[SECTIETITEL 5]</h2>
+  <p>[INHOUD]</p>
+  <div class="compare-wrap">
+    <table class="cmp">
+      <thead><tr><th>[KOLOM 1]</th><th>[KOLOM 2]</th><th>[KOLOM 3]</th></tr></thead>
+      <tbody>
+        <tr><td>[A]</td><td>[B]</td><td>[C]</td></tr>
+        <tr><td>[A]</td><td>[B]</td><td>[C]</td></tr>
+        <tr><td>[A]</td><td>[B]</td><td>[C]</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="link-block">
+    <div class="link-block-text">Meer lezen: <strong>[GERELATEERDE PAGINA]</strong> — [toelichting]</div>
+    <a href="/[URL]/">Bekijk &rsaquo;</a>
+  </div>
+
+  <h2 id="faq">Veelgestelde vragen over [ONDERWERP]</h2>
+  <div class="faq">
+    <div class="faq-item"><div class="faq-q">[VRAAG 1]</div><div class="faq-a">[ANTWOORD 1]</div></div>
+    <div class="faq-item"><div class="faq-q">[VRAAG 2]</div><div class="faq-a">[ANTWOORD 2]</div></div>
+    <div class="faq-item"><div class="faq-q">[VRAAG 3]</div><div class="faq-a">[ANTWOORD 3]</div></div>
+    <div class="faq-item"><div class="faq-q">[VRAAG 4]</div><div class="faq-a">[ANTWOORD 4]</div></div>
+  </div>
+
+  <h2 id="conclusie">Conclusie</h2>
+  <p>[SAMENVATTENDE ALINEA]</p>
+  <p>[AFSLUITENDE ALINEA met interne link: <a href="/[LANDINGSPAGINA]/">[ANKERTEKST]</a>]</p>
+
+  <div class="cta-block">
+    <h2>[CTA HEADING]</h2>
+    <p>[CTA SUBTEKST]</p>
+    <a href="/[LANDINGSPAGINA]/" class="btn btn-lg">[KNOPTEKST]</a>
+  </div>
+
+  <div class="updated">Gepubliceerd: [DATUM] &mdash; Bijgewerkt: [DATUM]</div>
+
+</article>
+
+<!-- GERELATEERD -->
+<div class="related">
+  <div class="related-inner">
+    <h2>Gerelateerde artikelen</h2>
+    <div class="related-grid">
+      <div class="rel-card"><img src="[AFBEELDING]" alt="[ALT]"><div class="rel-body"><h3>[TITEL]</h3><p>[BESCHRIJVING]</p><a href="#">Lees meer &rsaquo;</a></div></div>
+      <div class="rel-card"><img src="[AFBEELDING]" alt="[ALT]"><div class="rel-body"><h3>[TITEL]</h3><p>[BESCHRIJVING]</p><a href="#">Lees meer &rsaquo;</a></div></div>
+      <div class="rel-card"><img src="[AFBEELDING]" alt="[ALT]"><div class="rel-body"><h3>[TITEL]</h3><p>[BESCHRIJVING]</p><a href="#">Lees meer &rsaquo;</a></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SCHEMA MARKUP -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"[H1]","description":"[META]","datePublished":"[YYYY-MM-DD]","dateModified":"[YYYY-MM-DD]","author":{"@type":"Organization","name":"[SITENAAM]"},"publisher":{"@type":"Organization","name":"[SITENAAM]","url":"[DOMEIN]"},"mainEntityOfPage":{"@type":"WebPage","@id":"[URL]"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"[VRAAG 1]","acceptedAnswer":{"@type":"Answer","text":"[ANTWOORD 1]"}},
+  {"@type":"Question","name":"[VRAAG 2]","acceptedAnswer":{"@type":"Answer","text":"[ANTWOORD 2]"}}
+]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"[DOMEIN]/"},
+  {"@type":"ListItem","position":2,"name":"[CATEGORIE]","item":"[DOMEIN]/[CATEGORIE]/"},
+  {"@type":"ListItem","position":3,"name":"[TITEL KORT]"}
+]}
+</script>
+</body>
+</html>
