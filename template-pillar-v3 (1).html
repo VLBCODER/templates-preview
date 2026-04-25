@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[ONDERWERP]: de complete gids voor [JAAR] | [SITENAAM]</title>
+<meta name="description" content="[META BESCHRIJVING — MAX 155 TEKENS]">
+<link rel="canonical" href="[CANONICAL URL]">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#F07D00;--orangeDark:#d06d00;--blue:#1e3767;--blueDark:#162a4f;--green:#4a8c3f;--greenLight:#e8f5e3;--text:#222;--textLight:#555;--bg:#fff;--gray:#f5f5f0;--border:#e0e0d8;--footerBg:#1e3767}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Nunito',sans-serif;color:var(--text);font-size:16px;line-height:1.75;background:var(--bg)}img{display:block;max-width:100%;height:auto}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+
+.hero{position:relative;height:400px;overflow:hidden}.hero img{width:100%;height:100%;object-fit:cover}.hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(0deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,.1) 60%)}.hero-text{position:absolute;bottom:40px;left:0;right:0;text-align:center;z-index:2;padding:0 24px}.hero h1{font-size:42px;color:#fff;font-weight:800;margin-bottom:6px;text-shadow:0 2px 12px rgba(0,0,0,.3)}.hero-sub{font-size:17px;color:rgba(255,255,255,.9)}
+.crumbs{max-width:900px;margin:0 auto;padding:14px 24px;font-size:13px;color:#999}.crumbs a{color:var(--blue)}
+.toc{max-width:900px;margin:0 auto 30px;padding:0 24px}.toc-box{background:var(--greenLight);border-radius:10px;padding:24px 30px}.toc-box h2{color:var(--blue);font-size:20px;font-weight:800;margin-bottom:12px}
+.toc-list{columns:2;column-gap:30px;list-style:none;padding:0}.toc-list li{padding:4px 0;border-bottom:1px solid rgba(74,140,63,.15);font-size:15px}.toc-list li a{color:var(--blue);font-weight:700;text-decoration:none}.toc-list li a:hover{color:var(--orange)}
+.article{max-width:900px;margin:0 auto;padding:0 24px 40px}
+.qa{background:var(--greenLight);border-left:4px solid var(--green);padding:18px 22px;border-radius:0 8px 8px 0;margin:0 0 30px;font-size:15px;line-height:1.8;color:#333}
+.article h2{color:var(--blue);font-size:26px;font-weight:800;margin:44px 0 14px;padding-top:20px;border-top:2px solid var(--greenLight)}.article h2:first-of-type{border-top:none;padding-top:0}
+.article h3{color:var(--blueDark);font-size:20px;font-weight:800;margin:28px 0 10px}
+.article p{margin-bottom:16px;color:#444}.article ul,.article ol{margin:0 0 20px 24px;color:#444}.article li{margin-bottom:6px}.article li strong{color:var(--blue)}.article .photo{border-radius:8px;margin:24px 0;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.cluster{background:var(--gray);border-radius:10px;padding:22px 26px;margin:24px 0}.cluster h4{color:var(--blue);font-size:17px;font-weight:800;margin-bottom:10px}.cluster a{display:inline-block;background:var(--greenLight);color:var(--blue);padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;margin:3px 4px;text-decoration:none}.cluster a:hover{background:var(--orange);color:#fff}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:24px 0}.fact{background:var(--gray);border-radius:10px;padding:16px;text-align:center;border:2px solid var(--orange)}.fact-num{font-size:26px;font-weight:800;color:var(--orange)}.fact-label{font-size:12px;color:var(--textLight);font-weight:700;margin-top:2px}
+.cta-block{background:linear-gradient(135deg,var(--orange),#f5a623);border-radius:10px;padding:30px;text-align:center;margin:36px 0}.cta-block h3{color:#fff;font-size:22px;font-weight:800;margin-bottom:8px}.cta-block p{color:rgba(255,255,255,.9);margin-bottom:16px;font-size:15px}.cta-block .btn{background:#fff;color:var(--orange);font-size:16px;padding:12px 32px}
+.faq{margin:30px 0}.faq-item{border-bottom:1px solid var(--border);padding:14px 0}.faq-q{font-weight:700;color:var(--blue);font-size:16px}.faq-a{color:#555;font-size:15px;margin-top:5px}
+.related{background:var(--gray);padding:44px 0;margin-top:40px}.related h2{color:var(--blue);font-size:24px;font-weight:800;text-align:center;margin-bottom:24px}.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:900px;margin:0 auto;padding:0 24px}.related-card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06)}.related-card img{width:100%;height:140px;object-fit:cover}.related-card .rc-body{padding:14px 16px}.related-card h3{color:var(--blue);font-size:15px;font-weight:800;margin-bottom:4px}.related-card p{font-size:12px;color:#666;margin-bottom:6px}.related-card a{font-size:12px;font-weight:700;color:var(--orange);text-decoration:none}
+
+.updated{font-size:12px;color:#aaa;margin-top:30px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:700px){.toc-list{columns:1}.facts{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:28px}.hero{height:280px}.related-grid{grid-template-columns:1fr}footer .inner{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="hero"><img src="[HERO AFBEELDING URL]" alt="[ALT TEKST HERO]"><div class="hero-text"><h1>[H1 — ONDERWERP: de complete gids]</h1><div class="hero-sub">[SUBKOP — belofte van de gids &bull; JAAR]</div></div></div>
+
+<div class="crumbs"><a href="/">Home</a> / <a href="/[CATEGORIE]/">Kamperen</a> / [HUIDIGE PAGINA]</div>
+
+<div class="toc"><div class="toc-box"><h2>Inhoudsopgave</h2><ol class="toc-list">
+<li><a href="#h2-1">[SECTIETITEL 1]</a></li>
+<li><a href="#h2-2">[SECTIETITEL 2]</a></li>
+<li><a href="#h2-3">[SECTIETITEL 3]</a></li>
+<li><a href="#h2-4">[SECTIETITEL 4]</a></li>
+<li><a href="#h2-5">[SECTIETITEL 5]</a></li>
+<li><a href="#h2-6">[SECTIETITEL 6]</a></li>
+<li><a href="#h2-7">[SECTIETITEL 7]</a></li>
+<li><a href="#h2-8">[OPTIONELE SECTIETITEL — bijv. internationale doelgroep]</a></li>
+<li><a href="#tips">Praktische tips</a></li>
+<li><a href="#faq">Veelgestelde vragen</a></li>
+</ol></div></div>
+
+<div class="article">
+<div class="qa">[ANTWOORD OP ZOEKINTENTIE: 2-3 zinnen. Wat behandelt de gids? Wat leert de lezer? Bevat hoofdzoekwoord.]</div>
+
+<div class="facts">
+<div class="fact"><div class="fact-num">[GETAL 1]</div><div class="fact-label">[LABEL 1]</div></div>
+<div class="fact"><div class="fact-num">[GETAL 2]</div><div class="fact-label">[LABEL 2]</div></div>
+<div class="fact"><div class="fact-num">[GETAL 3]</div><div class="fact-label">[LABEL 3]</div></div>
+<div class="fact"><div class="fact-num">[GETAL 4]</div><div class="fact-label">[LABEL 4]</div></div>
+</div>
+
+<h2 id="h2-1">[H2 SECTIETITEL 1 — bevat hoofdzoekwoord]</h2>
+<p>[INTRODUCTIETEKST ALINEA 1 — schets het onderwerp, de regio en de doelgroep]</p>
+<p>[INTRODUCTIETEKST ALINEA 2 — sfeer en beleving, trek de lezer over de streep]</p>
+
+<h2 id="h2-2">[H2 SECTIETITEL 2]</h2>
+<p>[INHOUD H2 SECTIE 2 — alinea 1: beschrijf het eerste deelonderwerp]</p>
+<p>[INHOUD H2 SECTIE 2 — alinea 2: aanvullend detail of context]</p>
+<img class="photo" src="[AFBEELDING URL]" alt="[ALT — onderwerp + locatie]">
+
+<h2 id="h2-3">[H2 SECTIETITEL 3]</h2>
+<h3>[H3 SUBSECTIE A]</h3>
+<p>[INHOUD H3 SUBSECTIE A — 1-2 zinnen beschrijving]</p>
+<h3>[H3 SUBSECTIE B]</h3>
+<p>[INHOUD H3 SUBSECTIE B — 1-2 zinnen beschrijving]</p>
+<h3>[H3 SUBSECTIE C]</h3>
+<p>[INHOUD H3 SUBSECTIE C — 1-2 zinnen beschrijving]</p>
+<h3>[H3 SUBSECTIE D]</h3>
+<p> [INHOUD H2 SECTIE 6 — 1-2 alinea's over dit onderwerp] [SITENAAM] is vanaf 2026 voor het eerst het hele jaar geopend.</p>
+
+<div class="cluster"><h4>Gerelateerde pagina's</h4>
+<a href="[URL]">[INTERNE LINK 1]</a>
+<a href="[URL]">[INTERNE LINK 2]</a>
+<a href="[URL]">[INTERNE LINK 3]</a>
+<a href="[URL]">[INTERNE LINK C]</a>
+<a href="[URL]">[INTERNE LINK 5]</a>
+<a href="[URL]">[INTERNE LINK 6]</a>
+</div>
+
+<h2 id="h2-4">[H2 SECTIETITEL 4]</h2>
+<p>[INHOUD H2 SECTIE 4 — intro alinea over de doelgroep]</p>
+<ul>
+<li><strong>[ATTRACTIE 1]</strong> ([X min]): [omschrijving]</li>
+<li><strong>[ATTRACTIE 2]</strong> ([X min]): [omschrijving]</li>
+<li><strong>[ATTRACTIE 3]</strong> ([X min]): [omschrijving]</li>
+<li><strong>[UNIEKE ACTIVITEIT 1]</strong> [omschrijving]</li>
+<li><strong>[UNIEKE ACTIVITEIT 2]</strong> [omschrijving]</li>
+</ul>
+
+<h2 id="h2-5">[H2 SECTIETITEL 5]</h2>
+<p>[INHOUD H2 SECTIE 5 — 1-2 alinea's over dit onderwerp]</p>
+
+<h2 id="h2-6">[H2 SECTIETITEL 6]</h2>
+<p>[INHOUD H2 SECTIE 6 — 1-2 alinea's over dit onderwerp]</p>
+
+<div class="cluster"><h4>Gerelateerde pagina's</h4>
+<a href="[URL]">[INTERNE LINK A]</a>
+<a href="[URL]">[INTERNE LINK B]</a>
+<a href="[URL]">[INTERNE LINK C]</a>
+</div>
+
+<h2 id="h2-7">[H2 SECTIETITEL 7]</h2>
+<h3>[H3 SUBSECTIE A2]</h3>
+<p>[INHOUD H3 SUBSECTIE A2 — beschrijf de fiets- en wandelmogelijkheden in de regio]</p>
+<h3>[H3 SUBSECTIE B2]</h3>
+<ul>
+<li><strong>[STAD 1]</strong> ([X min]): [omschrijving]</li>
+<li><strong>[STAD 2]</strong> ([X min]): [omschrijving]</li>
+<li><strong>[STAD 3]</strong> ([X min]): [omschrijving]</li>
+</ul>
+<h3>[H3 SUBSECTIE C2]</h3>
+<p>[INHOUD H3 SUBSECTIE C2 — optioneel: grensligging of bijzondere omgevingsfactor]</p>
+
+<h2 id="h2-8">[H2 SECTIETITEL 8 — optioneel, bijv. internationale doelgroep]</h2>
+<p>[INHOUD H2 SECTIE 8 ALINEA 1 — optioneel: pas aan of verwijder als niet relevant]</p>
+<p>[INHOUD H2 SECTIE 8 ALINEA 2 — optioneel: specifieke feiten voor deze doelgroep]</p>
+
+<div class="cluster"><h4>Verwandte Seiten</h4>
+<a href="[URL]">[INTERNE LINK D]</a>
+<a href="[URL]">[INTERNE LINK E]</a>
+<a href="[URL]">[INTERNE LINK F]</a>
+<a href="[URL]">[INTERNE LINK G]</a>
+</div>
+
+<h2 id="tips">Praktische tips</h2>
+<ol>
+<li><strong>[TIP 1]:</strong> [toelichting]</li>
+<li><strong>[TIP 2]:</strong> [toelichting]</li>
+<li><strong>[TIP 3]:</strong> [toelichting]</li>
+<li><strong>[TIP 4]:</strong> [toelichting]</li>
+<li><strong>[TIP 5]:</strong> [toelichting]</li>
+</ol>
+
+<div class="cta-block">
+<h3>[CTA HEADING]</h3>
+<p>[CTA SUBTEKST — 1 zin met prikkel]</p>
+<a href="#" class="btn">Bekijk [SITENAAM]</a>
+</div>
+
+<h2 id="faq">Veelgestelde vragen</h2>
+<div class="faq">
+<div class="faq-item"><div class="faq-q">[VRAAG 1]</div><div class="faq-a">[ANTWOORD 1]</div></div>
+<div class="faq-item"><div class="faq-q">[VRAAG 2]</div><div class="faq-a">[ANTWOORD 2]</div></div>
+<div class="faq-item"><div class="faq-q">[VRAAG 3]</div><div class="faq-a">[ANTWOORD 3]</div></div>
+<div class="faq-item"><div class="faq-q">[VRAAG 4]</div><div class="faq-a">[ANTWOORD 4]</div></div>
+</div>
+<div class="updated">Laatst bijgewerkt: [DATUM] &bull; Auteur: [SITENAAM]</div>
+</div>
+
+<div class="related"><h2>Lees ook</h2><div class="related-grid">
+<div class="related-card"><img src="[AFBEELDING GERELATEERD 1]" alt="[ALT GERELATEERD 1]"><div class="rc-body"><h3>[GERELATEERDE PAGINA 1]</h3><p>[BESCHRIJVING GERELATEERD 1]</p><a href="#">Lees meer</a></div></div>
+<div class="related-card"><img src="[AFBEELDING GERELATEERD 2]" alt="[ALT GERELATEERD 2]"><div class="rc-body"><h3>[GERELATEERDE PAGINA 2]</h3><p>[BESCHRIJVING GERELATEERD 2]</p><a href="#">Lees meer</a></div></div>
+<div class="related-card"><img src="[AFBEELDING GERELATEERD 3]" alt="[ALT GERELATEERD 3]"><div class="rc-body"><h3>[GERELATEERDE PAGINA 3]</h3><p>[BESCHRIJVING GERELATEERD 3]</p><a href="#">Lees meer</a></div></div>
+</div></div>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"[H1 — ONDERWERP: de complete gids] voor 2026","description":"[META BESCHRIJVING]","author":{"@type":"Organization","name":"[SITENAAM]"},"datePublished":"[YYYY-MM-DD]","dateModified":"[YYYY-MM-DD]"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"[VRAAG 1]","acceptedAnswer":{"@type":"Answer","text":"[ANTWOORD 1 — beschrijf de beste optie met kernfeiten]... [bostheater en 350 kampeerplaatsen."}},{"@type":"Question","name":"[VRAAG 2]","acceptedAnswer":{"@type":"Answer","text":"Ja, [SITENAAM] biedt vanaf 2026 winterkamperen aan."}},{"@type":"Question","name":"[VRAAG 3]","acceptedAnswer":{"@type":"Answer","text":"[ANTWOORD 3]"}}]}</script>
+</body>
+</html>

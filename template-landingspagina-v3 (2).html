@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[PAGINATITEL] | [SITENAAM]</title>
+<meta name="description" content="[META BESCHRIJVING — MAX 155 TEKENS]">
+<link rel="canonical" href="[CANONICAL URL]">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#F07D00;--orangeDark:#d06d00;--blue:#1e3767;--blueDark:#162a4f;--green:#4a8c3f;--greenLight:#e8f5e3;--text:#222;--textLight:#555;--bg:#fff;--gray:#f5f5f0;--border:#e0e0d8;--footerBg:#1e3767}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Nunito',sans-serif;color:var(--text);font-size:16px;line-height:1.7;background:var(--bg)}img{display:block;max-width:100%;height:auto}a{color:var(--blue);text-decoration:none}
+
+.hero{position:relative;height:420px;overflow:hidden}.hero img{width:100%;height:100%;object-fit:cover}.hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(0deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.1) 60%)}.hero-text{position:absolute;bottom:50px;left:0;right:0;text-align:center;z-index:2;padding:0 24px}.hero h1{font-size:44px;color:#fff;font-weight:800;margin-bottom:8px;text-shadow:0 2px 12px rgba(0,0,0,.3)}.hero-sub{font-size:18px;color:rgba(255,255,255,.9)}
+.crumbs{max-width:1140px;margin:0 auto;padding:14px 24px;font-size:13px;color:#999}.crumbs a{color:var(--blue)}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}.grid{display:grid;grid-template-columns:1fr 340px;gap:48px;margin-top:10px}
+.qa{background:var(--greenLight);border-left:4px solid var(--green);padding:20px 24px;border-radius:0 8px 8px 0;margin:20px 0 32px;font-size:15px;line-height:1.8;color:#333}
+.main h2{color:var(--blue);font-size:26px;font-weight:800;margin:40px 0 14px}.main h2:first-of-type{margin-top:10px}.main p{margin-bottom:16px;color:#444}.main ul{margin:0 0 20px 22px;color:#444}.main ul li{margin-bottom:8px}.main ul li strong{color:var(--blue)}.main .photo{border-radius:8px;margin:20px 0;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.usp-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:30px 0}.usp{background:var(--gray);border-radius:10px;padding:16px 12px;text-align:center;border:2px solid var(--orange)}.usp-num{font-size:26px;font-weight:800;color:var(--orange)}.usp-label{font-size:12px;color:var(--textLight);margin-top:2px;font-weight:700}
+.compare{width:100%;border-collapse:collapse;margin:20px 0 30px;font-size:14px;table-layout:fixed}.compare th{background:var(--blue);color:#fff;padding:10px 12px;text-align:left;font-weight:700;font-size:13px}.compare td{padding:9px 12px;border-bottom:1px solid var(--border)}.compare tr:nth-child(even) td{background:var(--gray)}.compare .check{color:#10B981;font-weight:700}.compare .park{font-weight:700;color:var(--orange)}
+.faq{margin:40px 0 20px}.faq-item{border-bottom:1px solid var(--border);padding:16px 0}.faq-q{font-weight:700;color:var(--blue);font-size:16px}.faq-a{color:#555;font-size:15px;margin-top:6px}
+.side{position:sticky;top:90px;align-self:start}.cta-card{background:linear-gradient(135deg,var(--orange),#f5a623);border-radius:10px;padding:28px;text-align:center;margin-bottom:20px}.cta-card h3{color:#fff;font-size:20px;font-weight:800;margin-bottom:8px}.cta-card p{color:rgba(255,255,255,.9);font-size:14px;margin-bottom:16px}.cta-card .btn{background:#fff;color:var(--orange);font-size:15px;padding:12px 28px;width:100%;display:block;text-align:center}.cta-card .btn:hover{background:var(--gray)}
+.info-card{background:var(--gray);border-radius:10px;padding:20px;margin-bottom:20px}.info-card h4{color:var(--blue);font-size:17px;font-weight:800;margin-bottom:12px}.info-card table{width:100%;font-size:13px}.info-card td{padding:6px 0;border-bottom:1px solid var(--border)}.info-card td:first-child{color:var(--textLight);font-weight:700}.info-card td:last-child{text-align:right}
+.link-card{background:var(--greenLight);padding:24px;border-radius:10px}.link-card h4{color:var(--blue);font-size:17px;font-weight:800;margin-bottom:12px}.link-card a{display:block;font-size:14px;padding:7px 0;color:var(--blue);font-weight:700;border-bottom:1px solid rgba(30,55,103,.15)}.link-card a:last-child{border:none}.link-card a:hover{color:var(--orange)}
+.updated{font-size:12px;color:#aaa;margin-top:36px;padding-top:16px;border-top:1px solid var(--border)}
+.related{background:var(--gray);padding:48px 0;margin-top:48px}.related h2{color:var(--blue);font-size:26px;text-align:center;margin-bottom:28px;font-weight:800}.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1140px;margin:0 auto;padding:0 24px}.related-card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06)}.related-card img{width:100%;height:160px;object-fit:cover}.related-card .rc-body{padding:16px 18px}.related-card h3{color:var(--blue);font-size:16px;font-weight:800;margin-bottom:6px}.related-card p{font-size:13px;color:#666;margin-bottom:8px}.related-card a{font-size:13px;font-weight:700;color:var(--orange)}
+
+@media(max-width:900px){.grid{grid-template-columns:1fr}.side{position:static}.hero h1{font-size:30px}.hero{height:300px}.usp-strip{grid-template-columns:repeat(2,1fr)}.related-grid{grid-template-columns:1fr}footer .inner{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="hero"><img src="[HERO AFBEELDING URL]" alt="[ALT TEKST HERO — onderwerp + locatie]"><div class="hero-text"><h1>[H1 — HOOFDZOEKWOORD]</h1><div class="hero-sub">[SUBKOP — 1 zin, sfeer en locatie]</div></div></div>
+
+<div class="crumbs"><a href="/">Home</a> / <a href="/[CATEGORIE]/">[CATEGORIE LABEL]</a> / [H1 — HOOFDZOEKWOORD]</div>
+
+<div class="wrap"><div class="grid"><div class="main">
+<div class="qa">[ANTWOORD OP ZOEKINTENTIE: 2-3 zinnen. Wat, waar, waarom. Bevat hoofdzoekwoord. Dit is wat Google als featured snippet kan oppikken.]</div>
+
+<p>[INTRODUCTIETEKST ALINEA 1 — context, locatie, doelgroep en zoekwoorden verwerken. Min. 2 alinea's.]</p>
+
+<div class="usp-strip"><div class="usp"><div class="usp-num">[GETAL/KEURMERK]</div><div class="usp-label">[LABEL 1]</div></div><div class="usp"><div class="usp-num">[GETAL 2]</div><div class="usp-label">[LABEL 2]</div></div><div class="usp"><div class="usp-num">[GETAL 3]</div><div class="usp-label">[LABEL 3]</div></div><div class="usp"><div class="usp-num">[GETAL 4]</div><div class="usp-label">[LABEL 4]</div></div></div>
+
+<h2>[H2 SECTIETITEL 1 — bevat zoekwoord] [LABEL 2]</h2>
+<p>Op [SITENAAM] hoeft u zich geen zorgen te maken over het weer. [INHOUD — beschrijf de hoofdfaciliteit of het aanbod]warmd buitenbad met de spectaculaire 36 meter [LABEL 2] &mdash; uniek in de regio.</p>
+<img class="photo" src="[AFBEELDING URL 1]" alt="[ALT 1 — onderwerp + locatienaam]">
+
+<h2>[H2 SECTIETITEL 2]</h2>
+<p>[INHOUD SECTIE 2 — 2-3 alinea's]</p>
+<img class="photo" src="[AFBEELDING URL 2]" alt="[ALT 2]">
+
+<h2>[H2 SECTIETITEL 3 — bijv. Voordelen / Diensten / Aanbod]</h2>
+<ul><li><strong>[PUNT 1]</strong> [toelichting]</li><li>[PUNT 2]</li><li>[PUNT 3]</li><li>[PUNT 4]</li><li>[PUNT 5]</li><li>[PUNT 6]</li><li>[PUNT 7]</li><li>[PUNT 8]</li><li>[PUNT 9]</li></ul>
+
+<h2>Waarom [SITENAAM]?</h2>
+<table class="compare"><colgroup><col><col><col></colgroup><thead><tr><th></th><th class="park">[SITENAAM]</th><th>Gemiddeld</th></tr></thead><tbody>
+<tr><td>[CRITERIUM 1]</td><td><span class="check">&#10003;</span> [VOORDEEL]</td><td>[GEMIDDELDE]</td></tr>
+<tr><td>[CRITERIUM 2]</td><td><span class="check">&#10003;</span> [VOORDEEL]</td><td>[GEMIDDELDE]</td></tr>
+<tr><td>[CRITERIUM 3]</td><td><span class="check">&#10003;</span> [VOORDEEL]</td><td>[GEMIDDELDE]</td></tr>
+<tr><td>[CRITERIUM 4]</td><td><span class="check">&#10003;</span> [VOORDEEL]</td><td>[GEMIDDELDE]</td></tr>
+<tr><td>[CRITERIUM 5]</td><td><span class="check">&#10003;</span> [VOORDEEL]</td><td>[GEMIDDELDE]</td></tr>
+<tr><td>Huisdieren</td><td><span class="check">&#10003;</span> Welkom op [LABEL 3]</td><td>Niet altijd</td></tr>
+</tbody></table>
+
+<h2>[H2 — bijv. Omgeving &amp; uitjes]</h2>
+<ul><li><strong>[ATTRACTIE 1]</strong> ([X min]): [omschrijving]</li><li><strong>[ATTRACTIE 2]</strong> ([X min]): [omschrijving]</li><li><strong>[ATTRACTIE 3]</strong> ([X min]): [omschrijving]</li><li><strong>[ATTRACTIE 4]</strong> ([X min]): [omschrijving]</li><li><strong>[ATTRACTIE 5]</strong> ([X min]): [omschrijving]</li></ul>
+<img class="photo" src="[AFBEELDING URL 3]" alt="[ALT 3]">
+
+<h2>Veelgestelde vragen</h2>
+<div class="faq">
+<div class="faq-item"><div class="faq-q">[VRAAG 1]</div><div class="faq-a">[ANTWOORD 1uitenbad met een 36 meter [LABEL 2].</div></div>
+<div class="faq-item"><div class="faq-q">[VRAAG 2]</div><div class="faq-a">Ja, alle [GETAL 3] [LABEL 3] zijn geschikt voor campers. Er is ook een camperservicestation.</div></div>
+<div class="faq-item"><div class="faq-q">[VRAAG 3]</div><div class="faq-a">Ja, op [LABEL 3] [ANTWOORD 3]</div></div>
+<div class="faq-item"><div class="faq-q">[VRAAG 4]</div><div class="faq-a">[ANTWOORD 4]</div></div>
+<div class="faq-item"><div class="faq-q">[VRAAG 5]</div><div class="faq-a">[ANTWOORD 5]</div></div>
+</div>
+<div class="updated">Laatst bijgewerkt: [DATUM]</div>
+</div>
+
+<div class="side">
+<div class="cta-card"><h3>[CTA HEADING]</h3><p>[CTA SUBTEKST — 1 zin met prikkel]</p><a href="#" class="btn">[CTA KNOPTEKST]</a></div>
+<div class="info-card"><h4>[SITENAAM] in het kort</h4><table><tr><td>[GEGEVEN 1]</td><td>[WAARDE 1]</td></tr><tr><td>[GEGEVEN 2]</td><td>[WAARDE 2]</td></tr><tr><td>[GEGEVEN 3]</td><td>[WAARDE 3]</td></tr><tr><td>[GEGEVEN 4]</td><td>[WAARDE 4]</td></tr><tr><td>[GEGEVEN 5]</td><td>[WAARDE 5]</td></tr><tr><td>[GEGEVEN 6]</td><td>[WAARDE 6]</td></tr><tr><td>[GEGEVEN 7]</td><td>[WAARDE 7]</td></tr></table></div>
+<div class="link-card"><h4>Meer over [SITENAAM]</h4><a href="[URL]">[LINK 1]</a><a href="[URL]">[LINK 2]</a><a href="[URL]">[LINK 3]</a><a href="[URL]">[LINK 4]</a><a href="[URL]">[LINK 5]</a><a href="[URL]">[LINK 6]</a></div>
+</div></div></div>
+
+<div class="related"><h2>Dit vindt u misschien ook interessant</h2><div class="related-grid">
+<div class="related-card"><img src="[AFBEELDING GERELATEERD 1]" alt="[ALT GERELATEERD 1]"><div class="rc-body"><h3>[GERELATEERDE PAGINA 1]</h3><p>[BESCHRIJVING GERELATEERD 1]</p><a href="#">Lees meer</a></div></div>
+<div class="related-card"><img src="[AFBEELDING GERELATEERD 2]" alt="[ALT GERELATEERD 2]"><div class="rc-body"><h3>[GERELATEERDE PAGINA 2]</h3><p>[BESCHRIJVING GERELATEERD 2]</p><a href="#">Lees meer</a></div></div>
+<div class="related-card"><img src="[AFBEELDING GERELATEERD 3]" alt="[ALT GERELATEERD 3]"><div class="rc-body"><h3>[GERELATEERDE PAGINA 3]</h3><p>[BESCHRIJVING GERELATEERD 3]</p><a href="#">Lees meer</a></div></div>
+</div></div>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"[VRAAG 1]","acceptedAnswer":{"@type":"Answer","text":"[ANTWOORD 1]"}},{"@type":"Question","name":"[VRAAG 2]","acceptedAnswer":{"@type":"Answer","text":"[ANTWOORD 2]"}}]} een binnenzwembad?","acceptedAnswer":{"@type":"Answer","text":"Ja, er is een subtropisch binnenzwembad dat het hele jaar geopend is, plus een verwarmd buitenbad met een 36 meter [LABEL 2]."}},{"@type":"Question","name":"[VRAAG 2]","acceptedAnswer":{"@type":"Answer","text":"Ja, alle [GETAL 3] [LABEL 3] zijn geschikt voor campers. Er is ook een camperservicestation."}},{"@type":"Question","name":"[VRAAG 3]","acceptedAnswer":{"@type":"Answer","text":"Ja, op [LABEL 3] zijn huisdieren welkom. Er is zelfs een hondendouche."}},{"@type":"Question","name":"[VRAAG 5]","acceptedAnswer":{"@type":"Answer","text":"Ja, vanaf 2026 is [SITENAAM] voor het eerst het hele jaar geopend, inclusief winterkamperen."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LodgingBusiness","name":"Camping [SITENAAM]","description":"[BESCHRIJVING — 1 zin]" ... "[GETAL 2] [LABEL 2] in 1100 ha bos.","url":"[URL]","telephone":"[TELEFOON]","address":{"@type":"PostalAddress","streetAddress":"[STRAATNAAM + HUISNUMMER]","addressLocality":"[PLAATS]","postalCode":"[POSTCODE]","addressCountry":"NL"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"[SCORE]","bestRating":"10"}}</script>
+</body>
+</html>
