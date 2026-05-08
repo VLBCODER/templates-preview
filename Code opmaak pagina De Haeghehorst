@@ -1,0 +1,615 @@
+<!--
+  ============================================================
+  LP - Format De Haeghehorst — gebaseerd op template Heldense Bossen
+  ============================================================
+  Onderzoek verwerkt:
+  - Camping en bungalowpark De Haeghehorst ligt in Ermelo, Gelderland
+  - Positionering: "Thuis op de Veluwe" en familiecamping in Ermelo
+  - Thema: natuur, bos, heide, zandverstuivingen, waterpret en gezinscomfort
+  - Officiële pluspunten: ruim kamperen tussen de bomen, gevarieerde
+    accommodaties, animatie, binnen- en buitenzwembad, 45 m waterglijbaan
+  ============================================================
+-->
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kamperen op de Veluwe — Camping De Haeghehorst</title>
+<link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;600;700&family=Signika:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --groen: #5f8f21;
+    --blauw: #01427a;
+    --oranje: #e76f00;
+    --tekst: #333333;
+    --lichtgroen: #eef5dd;
+    --lichtblauw: #e8f1f8;
+    --wit: #ffffff;
+    --grijs: #f5f5f0;
+    --donkerblauw: #01284a;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Signika', sans-serif; font-size: 16px; color: var(--tekst); background: var(--wit); }
+  h1,h2,h3,h4 { font-family: 'Enriqueta', serif; }
+  h1 { font-size: 42px; font-weight: 700; line-height: 1.15; }
+  h2 { font-size: 32px; font-weight: 600; line-height: 1.2; }
+  h3 { font-size: 22px; font-weight: 600; }
+  p { line-height: 1.75; }
+  img { max-width: 100%; display: block; }
+  a { color: var(--blauw); text-decoration: none; }
+
+  .btn { display: inline-block; padding: 13px 30px; border-radius: 4px; font-family: 'Signika', sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; transition: opacity 0.2s, transform 0.15s; border: none; }
+  .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+  .btn-blauw { background: var(--blauw); color: #fff; }
+  .btn-oranje { background: var(--oranje); color: #fff; }
+  .btn-groen { background: var(--groen); color: #fff; }
+  .btn-outline { background: transparent; color: var(--blauw); border: 2px solid var(--blauw); }
+
+  /* HEADER */
+  .header { position: relative; height: 540px; overflow: hidden; }
+  .header-img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+  .header-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.52) 100%); }
+  .header-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 48px 60px; color: #fff; }
+  .header-content h1 { color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.3); max-width: 700px; }
+  .header-badge { display: inline-block; background: var(--oranje); color: #fff; font-size: 13px; font-weight: 600; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; letter-spacing: 0.04em; }
+
+  /* BREADCRUMB */
+  .breadcrumb-bar { background: var(--lichtgroen); border-bottom: 1px solid #cfe09c; padding: 10px 60px; }
+  .breadcrumb { font-size: 13px; color: #666; }
+  .breadcrumb a { color: var(--groen); }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { color: var(--tekst); font-weight: 500; }
+
+  /* SAMENVATTING */
+  .samenvatting { background: var(--lichtgroen); border-left: 5px solid var(--groen); padding: 28px 36px; margin: 40px 60px; border-radius: 0 8px 8px 0; }
+  .samenvatting p { font-size: 17px; color: #3a4a1e; line-height: 1.8; }
+
+  /* CONTAINER */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 60px; }
+  .section { padding: 64px 0; }
+  .section-title { color: var(--groen); margin-bottom: 8px; }
+  .section-sub { font-size: 17px; color: #666; margin-bottom: 36px; }
+  .divider { height: 3px; width: 60px; background: var(--oranje); margin: 12px 0 28px; border-radius: 2px; }
+
+  /* INTRO */
+  .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .intro-text h2 { margin-bottom: 8px; }
+  .intro-text p { margin: 16px 0 24px; font-size: 16px; }
+  .intro-img { border-radius: 12px; overflow: hidden; height: 380px; }
+  .intro-img img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* USPs */
+  .usp-section { background: var(--groen); padding: 64px 60px; }
+  .usp-title { color: #fff; text-align: center; margin-bottom: 8px; }
+  .usp-sub { text-align: center; color: rgba(255,255,255,0.85); margin-bottom: 48px; font-size: 16px; }
+  .usp-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
+  .usp-item { text-align: center; }
+  .usp-icon { width: 72px; height: 72px; margin: 0 auto 14px; }
+  .usp-icon svg { width: 72px; height: 72px; }
+  .usp-label { color: #fff; font-size: 14px; font-weight: 500; line-height: 1.4; }
+
+  /* DOELGROEP BLOK */
+  .doelgroep-section { background: #f0f0e8; padding: 72px 60px; text-align: center; }
+  .doelgroep-title { font-size: 36px; color: var(--blauw); max-width: 640px; margin: 0 auto 12px; line-height: 1.2; }
+  .doelgroep-sub { font-size: 16px; color: #666; max-width: 520px; margin: 0 auto 48px; }
+  .doelgroep-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1100px; margin: 0 auto; }
+  .doelgroep-card { background: #fff; border-radius: 16px; padding: 32px 28px; text-align: left; border: 1px solid #e0e0d8; }
+  .doelgroep-card h3 { color: var(--blauw); font-size: 18px; margin-bottom: 12px; }
+  .doelgroep-card p { font-size: 15px; color: #555; line-height: 1.65; }
+
+  /* FACILITEITEN */
+  .fac-section { background: var(--grijs); padding: 64px 0; }
+  .fac-bullets-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; margin-top: 4px; }
+  .fac-list { list-style: none; }
+  .fac-list li { display: flex; align-items: flex-start; gap: 12px; padding: 11px 0; border-bottom: 1px solid #e0e8cc; font-size: 15px; }
+  .fac-list li::before { content: "✓"; color: var(--groen); font-weight: 700; font-size: 16px; margin-top: 1px; flex-shrink: 0; }
+
+  /* GALLERY */
+  .gallery-section { padding: 64px 0; }
+  .gallery-wrapper { position: relative; }
+  .gallery-scroll { display: flex; gap: 16px; overflow-x: hidden; padding: 0 60px 8px; scroll-behavior: smooth; }
+  .gallery-thumb { flex-shrink: 0; width: 320px; height: 220px; border-radius: 10px; overflow: hidden; }
+  .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+  .gallery-thumb:hover img { transform: scale(1.04); }
+  .gallery-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; background: var(--wit); border: 2px solid var(--groen); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; transition: background 0.2s, color 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+  .gallery-arrow:hover { background: var(--groen); }
+  .gallery-arrow:hover svg { stroke: #fff; }
+  .gallery-arrow svg { stroke: var(--groen); width: 20px; height: 20px; }
+  .gallery-arrow.prev { left: 12px; }
+  .gallery-arrow.next { right: 12px; }
+
+  /* AANBOD */
+  .aanbod-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 36px; }
+  .aanbod-card { background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #e0e0d8; transition: box-shadow 0.2s, transform 0.2s; }
+  .aanbod-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.12); transform: translateY(-3px); }
+  .aanbod-img { height: 200px; overflow: hidden; }
+  .aanbod-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+  .aanbod-card:hover .aanbod-img img { transform: scale(1.05); }
+  .aanbod-body { padding: 20px; }
+  .aanbod-body h3 { font-size: 18px; margin-bottom: 10px; color: var(--blauw); }
+  .aanbod-bullets { list-style: none; margin-bottom: 16px; }
+  .aanbod-bullets li { font-size: 13px; color: #555; padding: 4px 0 4px 16px; position: relative; line-height: 1.5; }
+  .aanbod-bullets li::before { content: "•"; color: var(--groen); font-weight: 700; position: absolute; left: 0; }
+  .aanbod-center { text-align: center; }
+
+  /* REVIEWS */
+  .reviews-section { padding: 64px 0; }
+  .reviews-ardoer { background: var(--groen); border-radius: 16px; padding: 36px 40px; display: grid; grid-template-columns: auto 1fr auto; gap: 40px; align-items: center; }
+  .reviews-score { display: flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.15); border-radius: 12px; padding: 20px 28px; }
+  .score-heart { color: #fff; font-size: 28px; }
+  .score-num-big { font-family: 'Enriqueta', serif; font-size: 44px; font-weight: 700; color: #fff; line-height: 1; }
+  .score-basis-txt { font-size: 13px; color: rgba(255,255,255,0.85); margin-top: 4px; }
+  .reviews-bars { display: flex; flex-direction: column; gap: 10px; }
+  .bar-item { display: flex; align-items: center; gap: 12px; }
+  .bar-label-txt { font-size: 13px; color: rgba(255,255,255,0.9); width: 170px; flex-shrink: 0; }
+  .bar-track { flex: 1; height: 10px; background: rgba(255,255,255,0.25); border-radius: 5px; overflow: hidden; }
+  .bar-fill-oranje { height: 10px; background: var(--oranje); border-radius: 5px; }
+  .bar-score { font-size: 14px; font-weight: 600; color: #fff; min-width: 28px; text-align: right; }
+  .reviews-quote { background: rgba(255,255,255,0.12); border-radius: 12px; padding: 20px 24px; max-width: 260px; }
+  .reviews-quote p { font-size: 14px; color: #fff; line-height: 1.65; font-style: italic; }
+  .btn-meer { display: inline-block; margin-top: 16px; background: var(--oranje); color: #fff; font-size: 13px; font-weight: 600; padding: 8px 18px; border-radius: 4px; }
+
+  /* QUOTES */
+  .quotes-below { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+  .quote-card { background: #fff; border-radius: 10px; padding: 18px 20px; border: 1px solid #d0dce8; }
+  .quote-name { font-weight: 600; font-size: 14px; color: var(--blauw); margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center; }
+  .stars { color: var(--oranje); font-size: 13px; }
+  .quote-text { font-size: 14px; color: #555; line-height: 1.6; font-style: italic; }
+
+  /* OMGEVING */
+  .omgeving-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .omgeving-img { border-radius: 12px; overflow: hidden; height: 340px; }
+  .omgeving-img img { width: 100%; height: 100%; object-fit: cover; }
+  .attrac-list { list-style: none; margin-top: 8px; }
+  .attrac-item { display: flex; align-items: baseline; gap: 14px; padding: 12px 0; border-bottom: 1px solid #eee; }
+  .attrac-min { font-size: 12px; font-weight: 700; color: var(--oranje); min-width: 40px; background: #fff3e8; padding: 3px 8px; border-radius: 20px; text-align: center; }
+  .attrac-name { font-weight: 600; font-size: 14px; color: var(--blauw); min-width: 160px; }
+  .attrac-desc { font-size: 13px; color: #888; }
+
+  /* FAQ */
+  .faq-section { background: var(--grijs); padding: 64px 0; }
+  .faq-list { max-width: 760px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid #ddd; }
+  .faq-q { width: 100%; text-align: left; padding: 18px 0; font-family: 'Signika'; font-size: 16px; font-weight: 600; color: var(--tekst); background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .faq-q:hover { color: var(--groen); }
+  .faq-icon { font-size: 20px; color: var(--groen); flex-shrink: 0; transition: transform 0.2s; font-style: normal; }
+  .faq-a { font-size: 15px; color: #555; padding: 0 0 18px; line-height: 1.75; display: none; }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+  /* GERELATEERD */
+  .gerelateerd-section { padding: 48px 0; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .chip { background: var(--lichtgroen); border: 1px solid #c5dc8a; color: var(--groen); padding: 8px 18px; border-radius: 24px; font-size: 14px; font-weight: 500; transition: background 0.2s; cursor: pointer; }
+  .chip:hover { background: var(--groen); color: #fff; }
+
+  /* FOOTER */
+  .footer-wave { width: 100%; overflow: hidden; line-height: 0; }
+  .footer-wave svg { display: block; width: 100%; }
+  .footer-main { background: var(--donkerblauw); color: #fff; padding: 48px 60px; }
+  .footer-grid { display: grid; grid-template-columns: 180px 1fr 1fr 1fr; gap: 40px; max-width: 1100px; margin: 0 auto; }
+  .footer-social { display: flex; gap: 10px; margin-bottom: 0; }
+  .footer-social a { width: 42px; height: 42px; background: var(--oranje); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .footer-social svg { width: 18px; height: 18px; fill: #fff; }
+  .footer-col h4 { font-family: 'Signika', sans-serif; font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 16px; }
+  .footer-col p, .footer-col a { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 2; display: block; }
+  .footer-col a:hover { color: #fff; }
+  .footer-col .contact-item { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 4px; font-size: 14px; color: rgba(255,255,255,0.75); }
+  .footer-col .contact-item strong { color: #fff; }
+  .footer-bottom { background: var(--donkerblauw); border-top: 1px solid rgba(255,255,255,0.1); padding: 20px 60px; }
+  .footer-bottom-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+  .footer-logos { display: flex; gap: 16px; align-items: center; }
+  .ardoer-logo { font-family: 'Enriqueta', serif; font-size: 20px; font-weight: 700; color: #fff; }
+  .ardoer-logo span { color: var(--oranje); }
+  .top-badge { background: var(--blauw); color: #fff; font-size: 11px; font-weight: 700; padding: 6px 12px; border-radius: 6px; border: 2px solid var(--oranje); text-align: center; }
+  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.5); }
+
+  @media(max-width: 900px) {
+    .container { padding: 0 24px; }
+    .intro-grid, .omgeving-grid { grid-template-columns: 1fr; }
+    .usp-grid { grid-template-columns: repeat(3, 1fr); }
+    .aanbod-grid { grid-template-columns: 1fr 1fr; }
+    .doelgroep-grid { grid-template-columns: 1fr; }
+    .quotes-below { grid-template-columns: 1fr; }
+    .reviews-ardoer { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    h1 { font-size: 30px; }
+    .header { height: 380px; }
+    .header-content { padding: 28px 24px; }
+    .breadcrumb-bar { padding: 10px 24px; }
+    .samenvatting { margin: 24px; padding: 20px 24px; }
+    .usp-section { padding: 48px 24px; }
+    .doelgroep-section { padding: 48px 24px; }
+  }
+  @media(max-width: 600px) {
+    .usp-grid { grid-template-columns: repeat(2, 1fr); }
+    .aanbod-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <img class="header-img" src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1600&q=80" alt="Bos op de Veluwe">
+  <div class="header-overlay"></div>
+  <div class="header-content">
+    <div class="header-badge">★ 8,4 Ardoer-score · Thuis op de Veluwe</div>
+    <h1>Kamperen midden op de<br>Veluwe</h1>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <nav class="breadcrumb"><a href="#">Home</a> › <a href="#">Campings</a> › <a href="#">Gelderland</a> › <span>De Haeghehorst</span></nav>
+</div>
+
+<!-- SAMENVATTING -->
+<div class="samenvatting">
+  <p>Op zoek naar een familiecamping op de Veluwe met zwembad, animatie en volop ruimte in de natuur? De Haeghehorst ligt in Ermelo, tussen bossen, heidevelden en zandverstuivingen. Van ruime kampeerplaatsen tussen de bomen tot bungalows en bijzondere accommodaties: hier voelt vakantie snel als thuiskomen.</p>
+</div>
+
+<!-- INTRO -->
+<section class="section">
+  <div class="container">
+    <div class="intro-grid">
+      <div class="intro-text">
+        <h2 class="section-title">Welkom op De Haeghehorst</h2>
+        <div class="divider"></div>
+        <p>Welkom bij Camping en bungalowpark De Haeghehorst, een gastvrije plek in Ermelo waar avontuur en ontspanning samenkomen. De sfeer is warm en natuurlijk: precies passend bij het motto Thuis op de Veluwe.</p>
+        <p>Met ruime standplaatsen, gevarieerde accommodaties, binnen- en buitenzwembad, animatie en veel speelruimte is De Haeghehorst een sterke keuze voor gezinnen die actief willen genieten van de Veluwe.</p>
+        <a href="#" class="btn btn-blauw" style="margin-top:8px;">Boek je vakantie →</a>
+      </div>
+      <div class="intro-img">
+        <img src="https://images.unsplash.com/photo-1476231682828-37e571bc172f?auto=format&fit=crop&w=900&q=80" alt="Natuur en bos bij De Haeghehorst">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USPs -->
+<section class="usp-section">
+  <h2 class="usp-title">Waarom De Haeghehorst?</h2>
+  <p class="usp-sub">Vijf redenen waarom gezinnen hier keer op keer terugkomen</p>
+  <div class="usp-grid">
+    <div class="usp-item">
+      <!-- Icoon: bos -->
+      <div class="usp-icon"><svg viewBox="0 0 72 72" fill="none"><circle cx="36" cy="36" r="34" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/><rect x="32" y="46" width="8" height="14" rx="2" fill="#a8d060"/><ellipse cx="36" cy="28" rx="14" ry="12" fill="#c8e878"/><ellipse cx="36" cy="22" rx="10" ry="9" fill="#e0f4a0"/><ellipse cx="28" cy="34" rx="8" ry="7" fill="#b8d860"/><ellipse cx="44" cy="34" rx="8" ry="7" fill="#b8d860"/></svg></div>
+      <div class="usp-label">Midden op de Veluwe — bos en heide</div>
+    </div>
+    <div class="usp-item">
+      <!-- Icoon: zwembad -->
+      <div class="usp-icon"><svg viewBox="0 0 72 72" fill="none"><circle cx="36" cy="36" r="34" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/><rect x="14" y="38" width="44" height="18" rx="4" fill="#7dd3e8"/><path d="M14 44 Q22 40 30 44 Q38 48 46 44 Q54 40 58 44" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/><rect x="30" y="20" width="4" height="20" rx="2" fill="#e8e8e0"/><path d="M34 20 L42 28 L34 28" fill="#e0c070"/><circle cx="24" cy="30" r="5" fill="#f5c060" stroke="#e8a030" stroke-width="1"/><path d="M24 35 L22 44 M24 35 L26 44 M22 38 L26 38" stroke="#888" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="usp-label">Binnen- en buitenzwembad met 45 m glijbaan</div>
+    </div>
+    <div class="usp-item">
+      <!-- Icoon: animatie/figuur -->
+      <div class="usp-icon"><svg viewBox="0 0 72 72" fill="none"><circle cx="36" cy="36" r="34" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/><circle cx="36" cy="28" r="9" fill="#f5c060" stroke="#e8a030" stroke-width="1.5"/><path d="M27 44 C27 39 45 39 45 44 L45 52 L27 52 Z" fill="#c8e878"/><rect x="33" y="37" width="6" height="8" rx="1" fill="#a8c048"/><path d="M20 30 L23 27 M52 30 L49 27 M20 40 L23 38 M52 40 L49 38" stroke="#f5e080" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <div class="usp-label">Animatieprogramma en veel speelplekken</div>
+    </div>
+    <div class="usp-item">
+      <!-- Icoon: hert -->
+      <div class="usp-icon"><svg viewBox="0 0 72 72" fill="none"><circle cx="36" cy="36" r="34" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/><ellipse cx="36" cy="40" rx="12" ry="9" fill="#d4905a"/><ellipse cx="36" cy="28" rx="7" ry="8" fill="#d4905a"/><circle cx="34" cy="26" r="1.2" fill="#333"/><circle cx="38" cy="26" r="1.2" fill="#333"/><path d="M30 22 L26 16 M26 16 L23 13 M26 16 L24 19" stroke="#c07840" stroke-width="2" stroke-linecap="round"/><path d="M42 22 L46 16 M46 16 L49 13 M46 16 L48 19" stroke="#c07840" stroke-width="2" stroke-linecap="round"/><rect x="27" y="47" width="4" height="10" rx="2" fill="#c07840"/><rect x="41" y="47" width="4" height="10" rx="2" fill="#c07840"/><ellipse cx="47" cy="38" rx="3" ry="2" fill="#fff"/></svg></div>
+      <div class="usp-label">Wandelen en fietsen door Veluwse natuur</div>
+    </div>
+    <div class="usp-item">
+      <!-- Icoon: hart met cijfer -->
+      <div class="usp-icon"><svg viewBox="0 0 72 72" fill="none"><circle cx="36" cy="36" r="34" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/><path d="M36 52 C36 52 16 40 16 28 C16 22 21 18 27 18 C30.5 18 33.5 19.5 36 22 C38.5 19.5 41.5 18 45 18 C51 18 56 22 56 28 C56 40 36 52 36 52Z" fill="#e85a7a"/><text x="36" y="34" text-anchor="middle" font-size="12" font-family="Enriqueta,serif" font-weight="700" fill="#fff">8,4</text></svg></div>
+      <div class="usp-label">Beoordeeld met een 8,4 door Ardoer-gasten</div>
+    </div>
+  </div>
+</section>
+
+<!-- DOELGROEP -->
+<section class="doelgroep-section">
+  <h2 class="doelgroep-title">Een gezinsvakantie waarin iedereen het naar zijn zin heeft</h2>
+  <p class="doelgroep-sub">Een vakantie met kinderen vraagt om een plek waar genoeg te doen is, maar waar u als ouder ook kunt ontspannen.</p>
+  <div class="doelgroep-grid">
+    <div class="doelgroep-card">
+      <h3>Voor jonge kinderen</h3>
+      <p>Veilig spelen, overzichtelijke faciliteiten en genoeg waterpret voor een zorgeloze vakantie. Met de speeltuin en het peuterbad is er altijd wat te beleven.</p>
+    </div>
+    <div class="doelgroep-card">
+      <h3>Voor oudere kinderen</h3>
+      <p>Zwembad met glijbaan, sport, spel en ruimte om zelf op pad te gaan. Op de Veluwe is fietsen en wandelen door bos en heide een avontuur op zich.</p>
+    </div>
+    <div class="doelgroep-card">
+      <h3>Voor ouders</h3>
+      <p>Rust, gemak en het fijne gevoel dat de kinderen zich goed vermaken. Geniet van het terras, een wandeling door de bossen of het restaurant.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITEITEN -->
+<section class="fac-section">
+  <div class="container">
+    <h2 class="section-title">Faciliteiten</h2>
+    <div class="divider"></div>
+    <p class="section-sub">Alles wat je nodig hebt voor een zorgeloze vakantie, op één plek.</p>
+    <div class="fac-bullets-grid">
+      <ul class="fac-list">
+        <li>Binnenzwembad met peuterbad en 45 m waterglijbaan</li>
+        <li>Buitenzwembad en veel waterpret</li>
+        <li>Speelweide en sportvelden</li>
+        <li>Animatieprogramma in vakanties</li>
+      </ul>
+      <ul class="fac-list">
+        <li>Restaurant, bar/café en terras</li>
+        <li>Fietsverhuur en gratis fietsroute-inspiratie</li>
+        <li>Gratis WiFi</li>
+        <li>Laadpaal voor elektrische auto</li>
+      </ul>
+    </div>
+    <div style="margin-top:28px;">
+      <a href="#" class="btn btn-blauw">Bekijk alle faciliteiten →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOTOCOLLAGE -->
+<section class="gallery-section">
+  <div class="container" style="margin-bottom:28px;">
+    <h2 class="section-title">Sfeer &amp; beelden</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="gallery-wrapper">
+    <button class="gallery-arrow prev" onclick="scrollGallery(-1)" aria-label="Vorige">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,18 9,12 15,6"/></svg>
+    </button>
+    <div class="gallery-scroll" id="gallery">
+      <div class="gallery-thumb"><img src="https://images.unsplash.com/photo-1476231682828-37e571bc172f?auto=format&fit=crop&w=640&q=80" alt="Standplaatsen tussen de bomen"></div>
+      <div class="gallery-thumb"><img src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&fit=crop&w=640&q=80" alt="Zwembad"></div>
+      <div class="gallery-thumb"><img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=640&q=80" alt="Speeltuin"></div>
+      <div class="gallery-thumb"><img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=640&q=80" alt="Veluwe bos"></div>
+      <div class="gallery-thumb"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=640&q=80" alt="Gezinsvakantie"></div>
+      <div class="gallery-thumb"><img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=640&q=80" alt="Fietsen op de Veluwe"></div>
+      <div class="gallery-thumb"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=640&q=80" alt="Bungalow"></div>
+    </div>
+    <button class="gallery-arrow next" onclick="scrollGallery(1)" aria-label="Volgende">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- AANBOD -->
+<section class="section" style="background:var(--grijs);">
+  <div class="container">
+    <h2 class="section-title">Ons aanbod</h2>
+    <div class="divider"></div>
+    <p class="section-sub">Van kampeerplaats tot sfeervolle bungalow — kies jouw ideale Veluwe-vakantie.</p>
+    <div class="aanbod-grid">
+      <div class="aanbod-card">
+        <div class="aanbod-img"><img src="https://images.unsplash.com/photo-1476231682828-37e571bc172f?auto=format&fit=crop&w=900&q=80" alt="Kampeerplaatsen"></div>
+        <div class="aanbod-body">
+          <h3>Kampeerplaatsen</h3>
+          <ul class="aanbod-bullets">
+            <li>Ruime, beschaduwde plaatsen op de Veluwe</li>
+            <li>Geschikt voor tent, caravan en camper</li>
+            <li>Stroom en wateraansluiting beschikbaar</li>
+            <li>Gratis WiFi inbegrepen</li>
+          </ul>
+          <a href="#" class="btn btn-blauw">Bekijk plaatsen</a>
+        </div>
+      </div>
+      <div class="aanbod-card">
+        <div class="aanbod-img"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80" alt="Bungalows"></div>
+        <div class="aanbod-body">
+          <h3>Bungalows &amp; chalets</h3>
+          <ul class="aanbod-bullets">
+            <li>Sfeervolle huisjes midden op de Veluwe</li>
+            <li>Compleet ingericht voor 4–6 personen</li>
+            <li>Eigen terras met tuinmeubilair</li>
+            <li>Knusse sfeer, alle comfort</li>
+          </ul>
+          <a href="#" class="btn btn-blauw">Bekijk bungalows</a>
+        </div>
+      </div>
+      <div class="aanbod-card">
+        <div class="aanbod-img"><img src="https://images.unsplash.com/photo-1504851149312-7a075b496cc7?auto=format&fit=crop&w=900&q=80" alt="Bijzondere accommodaties"></div>
+        <div class="aanbod-body">
+          <h3>Bijzondere accommodaties</h3>
+          <ul class="aanbod-bullets">
+            <li>Modern kamperen met alle comfort</li>
+            <li>Volledig ingericht, incl. bedlinnen</li>
+            <li>Eigen terras met tuinmeubilair</li>
+            <li>Ideaal voor koppels en kleine gezinnen</li>
+          </ul>
+          <a href="#" class="btn btn-blauw">Bekijk accommodaties</a>
+        </div>
+      </div>
+    </div>
+    <div class="aanbod-center">
+      <a href="#" class="btn btn-outline">Bekijk alles →</a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section">
+  <div class="container">
+    <h2 class="section-title">Gastenbeoordelingen</h2>
+    <div class="divider"></div>
+    <div class="reviews-ardoer">
+      <div class="reviews-score">
+        <div>
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 28 C16 28 4 20 4 12 C4 8 7.5 5 11 5 C13 5 15 6 16 7.5 C17 6 19 5 21 5 C24.5 5 28 8 28 12 C28 20 16 28 16 28Z" fill="white"/></svg>
+        </div>
+        <div>
+          <div class="score-num-big">8,4</div>
+          <div class="score-basis-txt">Ardoer gastenbeoordeling</div>
+        </div>
+      </div>
+      <div class="reviews-bars">
+        <div class="bar-item"><span class="bar-label-txt">Natuurlijke ligging</span><div class="bar-track"><div class="bar-fill-oranje" style="width:88%"></div></div><span class="bar-score">8,8</span></div>
+        <div class="bar-item"><span class="bar-label-txt">Zwemplezier</span><div class="bar-track"><div class="bar-fill-oranje" style="width:84%"></div></div><span class="bar-score">8,4</span></div>
+        <div class="bar-item"><span class="bar-label-txt">Speelvoorzieningen</span><div class="bar-track"><div class="bar-fill-oranje" style="width:85%"></div></div><span class="bar-score">8,5</span></div>
+        <div class="bar-item"><span class="bar-label-txt">Recreatieprogramma</span><div class="bar-track"><div class="bar-fill-oranje" style="width:82%"></div></div><span class="bar-score">8,2</span></div>
+        <div class="bar-item"><span class="bar-label-txt">Kampeercomfort</span><div class="bar-track"><div class="bar-fill-oranje" style="width:86%"></div></div><span class="bar-score">8,6</span></div>
+      </div>
+      <div class="reviews-quote">
+        <p>"Wij komen al sinds 1983 op de camping. Alles is er altijd netjes verzorgd en de omgeving is mooi om te fietsen."</p>
+        <a href="#" class="btn-meer">Meer beoordelingen</a>
+      </div>
+    </div>
+    <div class="quotes-below">
+      <div class="quote-card">
+        <div class="quote-name">Vaste Veluwegast <span class="stars">★★★★★</span></div>
+        <div class="quote-text">"Een fijne camping waar natuur, rust en voorzieningen goed samenkomen."</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-name">Gezin met kinderen <span class="stars">★★★★★</span></div>
+        <div class="quote-text">"Zwembad, glijbaan en animatie maken het voor kinderen heerlijk overzichtelijk."</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-name">Fietsliefhebber <span class="stars">★★★★☆</span></div>
+        <div class="quote-text">"Vanaf de camping ben je snel in de bossen en op de mooiste fietsroutes."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OMGEVING -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Omgeving &amp; locatie</h2>
+    <div class="divider"></div>
+    <div class="omgeving-grid">
+      <div class="omgeving-img"><img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=900&q=80" alt="Omgeving Veluwe"></div>
+      <div>
+        <p style="margin-bottom:20px;">De Haeghehorst ligt in Ermelo, midden in de Veluwse natuur. Bossen, heidevelden en zandverstuivingen liggen binnen handbereik, met genoeg dorpen en uitstapjes in de buurt voor afwisseling.</p>
+        <ul class="attrac-list">
+          <li class="attrac-item"><span class="attrac-min">5 min</span><span class="attrac-name">Ermelo centrum</span><span class="attrac-desc">winkels, horeca en dagelijkse boodschappen</span></li>
+          <li class="attrac-item"><span class="attrac-min">10 min</span><span class="attrac-name">Veluwse bossen</span><span class="attrac-desc">wandelen, fietsen en tot rust komen</span></li>
+          <li class="attrac-item"><span class="attrac-min">20 min</span><span class="attrac-name">Harderwijk</span><span class="attrac-desc">historische stad en boulevard</span></li>
+          <li class="attrac-item"><span class="attrac-min">30 min</span><span class="attrac-name">Nationaal Park De Hoge Veluwe</span><span class="attrac-desc">natuur, kunst en fietsroutes</span></li>
+          <li class="attrac-item" style="border:none;"><span class="attrac-min">35 min</span><span class="attrac-name">Paleis Het Loo</span><span class="attrac-desc">koninklijk paleis en tuinen</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <h2 class="section-title" style="text-align:center;">Veelgestelde vragen</h2>
+    <div class="divider" style="margin:12px auto 36px;"></div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">Zijn huisdieren toegestaan op De Haeghehorst? <em class="faq-icon">+</em></button>
+        <div class="faq-a">Op de Ardoer-pagina staat huisdieren niet toegestaan vermeld. Controleer bij het boeken altijd het gekozen verblijfstype en de actuele voorwaarden.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Wat zijn de incheck- en uitchecktijden? <em class="faq-icon">+</em></button>
+        <div class="faq-a">De exacte aankomst- en vertrektijden hangen af van je verblijfstype. Kijk in de boekingsbevestiging of neem contact op met de receptie.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is het zwembad het hele jaar open? <em class="faq-icon">+</em></button>
+        <div class="faq-a">De camping heeft zwemvoorzieningen met binnenbad, buitenbad en een 45 meter lange waterglijbaan. Actuele openingstijden kunnen per seizoen verschillen.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Kan ik mijn reservering annuleren of wijzigen? <em class="faq-icon">+</em></button>
+        <div class="faq-a">Annuleren en wijzigen is mogelijk, afhankelijk van de annuleringsvoorwaarden bij jouw boeking. Wij adviseren een annuleringsverzekering af te sluiten voor extra zekerheid.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is er WiFi beschikbaar op de camping? <em class="faq-icon">+</em></button>
+        <div class="faq-a">Ja, WiFi is beschikbaar op het hele terrein. In de centrale gebouwen is het signaal het sterkst. Op de kampeerplaatsen kan de snelheid variëren.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GERELATEERD -->
+<section class="gerelateerd-section">
+  <div class="container">
+    <h2 class="section-title">Misschien ook interessant</h2>
+    <div class="divider"></div>
+    <div class="chips">
+      <a href="#" class="chip">Gezinscampings Veluwe</a>
+      <a href="#" class="chip">Campings met zwembad Gelderland</a>
+      <a href="#" class="chip">Kamperen op de Veluwe</a>
+      <a href="#" class="chip">Bungalows Veluwe</a>
+      <a href="#" class="chip">Ardoer campings</a>
+      <a href="#" class="chip">Kamperen met kinderen</a>
+      <a href="#" class="chip">Kamperen hond welkom</a>
+      <a href="#" class="chip">Glamping Veluwe</a>
+      <a href="#" class="chip">Kindercamping Gelderland</a>
+      <a href="#" class="chip">Camperplaats Veluwe</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer-wave">
+  <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,30 C180,60 360,0 540,30 C720,60 900,0 1080,30 C1260,60 1350,15 1440,30 L1440,60 L0,60 Z" fill="#01284a"/>
+  </svg>
+</div>
+<footer class="footer-main">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="#01284a"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#01284a" stroke-width="2"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.47A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="#01284a"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Adres &amp; contact</h4>
+      <div class="contact-item"><strong>Camping De Haeghehorst</strong></div>
+      <div class="contact-item">Fazantlaan 4</div>
+      <div class="contact-item">3852 AM Ermelo</div>
+      <div class="contact-item" style="margin-top:8px;">info@haeghehorst.nl</div>
+      <div class="contact-item">+31 (0)341 553 185</div>
+    </div>
+    <div class="footer-col">
+      <h4>Ga naar</h4>
+      <a href="#">Kamperen</a>
+      <a href="#">Verhuur</a>
+      <a href="#">Plattegrond</a>
+      <a href="#">Faciliteiten</a>
+      <a href="#">Omgeving</a>
+      <a href="#">Camping op de Veluwe</a>
+      <a href="#">Camping met zwembad Gelderland</a>
+    </div>
+    <div class="footer-col">
+      <h4>Informatie</h4>
+      <a href="#">Contact</a>
+      <a href="#">Brochure</a>
+      <a href="#">Veelgestelde vragen</a>
+      <a href="#">App</a>
+      <a href="#">Vacatures</a>
+      <a href="#">Privacyverklaring</a>
+      <a href="#">Algemene voorwaarden</a>
+    </div>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <div class="footer-bottom-inner">
+    <span class="footer-copy">Copyright © 2026 De Haeghehorst</span>
+    <div class="footer-logos">
+      <div class="ardoer-logo">Ardoer<span>♥</span> <span style="font-size:11px;font-weight:400;opacity:0.8;">Campings met een hart</span></div>
+      <div class="top-badge">ANWB<br>TOP 2026<br>★★★★★</div>
+    </div>
+    <span class="footer-copy">Reserveringssysteem camping: Recranet</span>
+  </div>
+</div>
+
+<script>
+  function scrollGallery(dir) {
+    const gallery = document.getElementById('gallery');
+    gallery.scrollBy({ left: dir * 352, behavior: 'smooth' });
+  }
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
